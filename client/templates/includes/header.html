@@ -8,7 +8,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{{pathFor 'homePage'}}">How to say</a>
+        <a class="navbar-brand" href="{{pathFor 'homePage'}}">{{_ "appName"}}</a>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -22,13 +22,13 @@
               {{displayName}} <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="#">Profile</a></li>
+                <li><a href="#">{{_ "profile"}}</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#" id="logout">Sign out</a></li>
+                <li><a href="#" id="logout">{{_ "signOut"}}</a></li>
               </ul>
             </li>
           {{else}}
-            <li><a href="{{pathFor 'signIn'}}">Sign in / Sign up</a></li>
+            <li><a href="{{pathFor 'signIn'}}">{{_ "register"}}</a></li>
           {{/if}}
         </ul>
       </div>
