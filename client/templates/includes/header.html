@@ -22,13 +22,13 @@
               {{displayName}} <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="#">{{_ "profile"}}</a></li>
+                <li><a href="{{pathFor 'userProfile'}}">{{_ "profile"}}</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="#" id="logout">{{_ "signOut"}}</a></li>
               </ul>
             </li>
           {{else}}
-            <li><a href="{{pathFor 'signIn'}}">{{_ "register"}}</a></li>
+            <li><a href="{{pathFor 'signIn'}}">{{_ "signIn"}}</a></li>
           {{/if}}
         </ul>
       </div>

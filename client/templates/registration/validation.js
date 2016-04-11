@@ -7,6 +7,10 @@ $.validator.setDefaults({
     password: {
       required: true,
       minlength: 6
+    },
+    name: {
+      required: true,
+      minlength: 6
     }
   },
   messages: {
