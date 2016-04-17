@@ -3,6 +3,9 @@ Template.header.events({
     event.preventDefault();
     Meteor.logout();
     Router.go('signIn');
+  },
+  'click .add-question-header': function(event){
+    Router.go('addQuestion');
   }
 });
 
