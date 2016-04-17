@@ -1,3 +1,16 @@
 appName: Tập Viết
 profile: Trang cá nhân
 register: Đăng nhập / Đăng ký
+# add-question
+addQuestion: Add question
+addQuestionHeader: Add your question here
+type: Type
+content: Question
+topic: Topic
+create: Create
+# displayed-question
+displayedQuestion: Displayed question
+answer: Answer
+addYourAnswer: add your answer
+addMore: Add more
+finished: Finish

@@ -1,0 +1,30 @@
+<template name="displayedQuestion">
+      <h2>{{_ "displayedQuestion"}}</h2>
+      <div class="row">
+          <label class="col-xs-2">{{_ "content"}}:</label>
+          <p name='questionContent' class="question col-xs-6">{{createdQuestion.content}}</p>
+      </div>
+      <div class="row">
+          <label class="col-xs-2">{{_ "topic"}}:</label>
+          <p>{{createdQuestion.topic}}</p>
+      </div>
+      <div class="answer-list row">
+          <label class="col-xs-2">{{_ "answer"}}:</label>
+          {{#if answer != null}}
+            <ul class="list-answer">
+              {{#each answer}}
+                <div class="row">
+                  <label class="col-xs-2">{{answerBy}}:</label>
+                  <li class="answer {{selectedClass}}">{{content}}</li>
+                </div>
+              {{/each}}
+            </ul>
+          {{else}}
+            <p class="addAnswer">{{_ "addYourAnswer"}}</p>
+          {{/if}}
+      </div>
+      <div class="btn">
+        <input class="addMore btn btn-success" type="button" value="{{_ 'addMore'}}" />
+        <input class="finished btn btn-primary" type="button" value="{{_ 'finished'}}" />
+      </div>
+</template>
