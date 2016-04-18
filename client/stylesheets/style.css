@@ -1,5 +1,12 @@
-.addAnswer{
-	cursor: pointer;
-	color: blue;
-	
+.addAnswer {
+  cursor: pointer;
+  color: blue;
+}
+
+
+/*Login*/
+
+.sign-in-container {
+  max-width: 300px;
+  margin: 0 auto;
 }

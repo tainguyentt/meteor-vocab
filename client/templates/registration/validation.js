@@ -15,12 +15,12 @@ $.validator.setDefaults({
   },
   messages: {
     email: {
-      required: "You must enter an email address.",
-      email: "You've entered an invalid email address."
+      required: TAPi18n.__('requiredEmail'),
+      email: TAPi18n.__('invalidEmail')
     },
     password: {
-      required: "You must enter a password.",
-      minlength: "Your password must be at least {0} characters."
+      required: TAPi18n.__('requiredPassword'),
+      minlength: TAPi18n.__('passwordMinLength')
     }
   }
 });
