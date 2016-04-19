@@ -20,6 +20,9 @@ Template.addQuestion.onRendered(function() {
   //   isLogin = true;
   // }
   // console.log("currentUserId", currentUserId);
+
+    var sss = TAPi18n.__('test');
+    console.log("test tapi18n", sss);
 });
 
 Template.addQuestion.helpers({

@@ -6,8 +6,9 @@
         <div class="row">
             <label class="col-xs-2">{{_ "type"}}:</label>
             <select name="questionType" class="col-xs-6" >
-              <option value="sentence">Sentence</option>
-              <option value="word">Word</option>
+              <option value="{{_ 'sentence'}}">{{_ "sentence"}}</option>
+              <option value="{{_ 'word'}}">{{_ "word"}}</option>
+              <option value="{{_ 'paragraph'}}">{{_ "paragraph"}}</option>
             </select>
         </div>
         <div class="row">
@@ -16,7 +17,7 @@
         </div>
         <div class="row">
             <label class="col-xs-2">{{_ "topic"}}:</label>
-            <input class="col-xs-6"  type="text" name="questionTopic" placeholder="game, sport, ...">
+            <input class="col-xs-6"  type="text" name="questionTopic">
         </div>
             <input class="btn btn-success" type="submit" value="{{_ 'create'}}" />
       </form>

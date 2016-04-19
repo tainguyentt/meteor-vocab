@@ -15,8 +15,8 @@ $.validator.setDefaults({
   },
   messages: {
     email: {
-      required: "You must enter an email address.",
-      email: "You've entered an invalid email address."
+      required: TAPi18n.__('test'),
+      email: TAPi18n.__('test')
     },
     password: {
       required: "You must enter a password.",

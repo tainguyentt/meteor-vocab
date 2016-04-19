@@ -2,15 +2,20 @@ appName: Tập Viết
 profile: Trang cá nhân
 register: Đăng nhập / Đăng ký
 # add-question
-addQuestion: Add question
-addQuestionHeader: Add your question here
-type: Type
-content: Question
-topic: Topic
-create: Create
+addQuestion: Tạo câu hỏi
+addQuestionHeader: Điền câu hỏi tại đây
+type: Loại
+content: Câu hỏi
+topic: Chủ đề
+create: Tạo
+sentence: Câu văn
+word: Cụm từ
+paragraph: Đoạn văn
 # displayed-question
-displayedQuestion: Displayed question
-answer: Answer
-addYourAnswer: add your answer
-addMore: Add more
-finished: Finish
+displayedQuestion: Câu hỏi của bạn
+answer: Trả lời
+addYourAnswer: thêm câu trả lời
+addMore: Tạo tiếp
+finished: Kết Thúc
+test: kiểm tra giá trị 111	
+
