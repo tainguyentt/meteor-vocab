@@ -1,5 +1,8 @@
 <template name="displayedQuestion">
-      <h2>{{_ "displayedQuestion"}}</h2>
+      <div class="row">
+        <h3 class="col-xs-8">{{_ "displayedQuestion"}}</h3>
+         <span class="col-xs-4 edit-question  glyphicon glyphicon-edit" aria-hidden="true"></span>
+      </div>
       <div class="row">
           <label class="col-xs-2">{{_ "content"}}:</label>
           <p name='questionContent' class="question">{{createdQuestion.content}}</p>

@@ -10,12 +10,6 @@ Template.displayedQuestion.onRendered(function() {
 });
 
 Template.displayedQuestion.helpers({
-  // 'isLogin': function(){
-  //   var currentUserId = Meteor.userId();
-  //   if(currentUserId != null){
-  //     return true;
-  //   }
-  // },
   'createdQuestion': function(){
     return Session.get('questionFindByIdSession');
   },
@@ -24,24 +18,6 @@ Template.displayedQuestion.helpers({
   }
 });
 
-/*Template.addQuestion.events({
-  'click .player': function(){
-    var playerId = this._id;
-    Session.set("selectedPlayer", playerId);
-  },
-  'click .increment': function(){
-    var selectedPlayer = Session.get("selectedPlayer");
-    Meteor.call('modifyPlayerScore', selectedPlayer, 5);
-  },
-  'click .decrement': function(){
-    var selectedPlayer = Session.get("selectedPlayer");
-    Meteor.call('modifyPlayerScore', selectedPlayer, -5);
-  },
-  'click .remove': function(){
-    var selectedPlayer = Session.get("selectedPlayer");
-    Meteor.call('removePlayer', selectedPlayer);
-  }
-});*/
 
 Template.displayedQuestion.events({
  'click .addAnswer': function(){
@@ -53,5 +29,8 @@ Template.displayedQuestion.events({
   },
   'click .finished': function(){
     Router.go("homePage");
+  },
+  'click .edit-question': function(){
+    console.log("edit question")
   }
 });
