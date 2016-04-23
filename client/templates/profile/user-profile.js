@@ -27,6 +27,26 @@ Template.userProfile.helpers({
     var user = Meteor.user();
     if (user && user.profile && user.profile.displayLanguage)
       return user.profile.displayLanguage;
-    return 'English';
+    return 'Vietnamese';
+  },
+  nameEditing: function() {
+    return Session.equals('nameEditing', 'true');
+  }
+});
+
+Template.userProfile.events({
+  'click .name-edit': function(e) {
+    e.preventDefault();
+    Session.set('nameEditing', 'true');
+  },
+  'click .name-save': function(e) {
+    e.preventDefault();
+    var newName = $('[name=newName]').val();
+    Meteor.users.update(Meteor.userId(), { $set: { 'profile.name': newName } });
+    Session.set('nameEditing', 'false');
+  },
+  'click .name-cancel': function(e) {
+    e.preventDefault();
+    Session.set('nameEditing', 'false');
   }
 });

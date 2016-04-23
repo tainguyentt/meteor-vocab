@@ -1,30 +1,41 @@
 <template name="userProfile">
-  <form class="form-horizontal">
-    <div class="form-group">
-      <label class="col-sm-2 control-label">Name</label>
-      <div class="col-sm-10">
-        <p class="form-control-static">{{name}}</p>
+  <div class="row">
+    <label class="col-sm-2 control-label">Name</label>
+    {{#if nameEditing}}
+      <div class="col-sm-2">
+        <input class="form-control" type="text" name="newName" value="{{name}}" />
+      </div>
+      <a class="name-save" href="#">Save</a>
+      <a class="name-cancel" href="#">Cancel</a>
+    {{else}}
+      <div class="col-sm-2">
+        <p>{{name}}</p>
+      </div>
+      <a class="name-edit" href="#">Edit</a>
+    {{/if}}
+  </div>
+  <div class="row">
+    <label class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-5">
+      <p>{{email}}</p>
+    </div>
+  </div>
+  {{#unless emailVerified}}
+    <div class="row">
+      <label class="col-sm-2 control-label">Email verification</label>
+      <div class="col-sm-5">
+        <p>Not verified</p>
       </div>
     </div>
-    <div class="form-group">
-      <label class="col-sm-2 control-label">Email</label>
-      <div class="col-sm-10">
-        <p class="form-control-static">{{email}}</p>
-      </div>
+  {{/unless}}
+  <div class="row">
+    <label class="col-sm-2 control-label">Display Language</label>
+    <div class="col-sm-5">
+      <p>{{displayLanguage}}</p>
     </div>
-    {{#unless emailVerified}}
-      <div class="form-group">
-        <label class="col-sm-2 control-label">Email verification</label>
-        <div class="col-sm-10">
-          <p class="form-control-static">Not verified</p>
-        </div>
-      </div>
-    {{/unless}}
-    <div class="form-group">
-      <label class="col-sm-2 control-label">Display Language</label>
-      <div class="col-sm-10">
-        <p class="form-control-static">{{displayLanguage}}</p>
-      </div>
-    </div>
-  </form>
+  </div>
+  <div class="row">
+    <label class="col-sm-2 control-label">Password</label>
+    <a class="col-sm-2" href="{{pathFor 'changePassword'}}">{{_ 'Change Password'}}</a>
+  </div>
 </template>

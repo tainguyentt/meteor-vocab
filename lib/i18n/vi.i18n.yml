@@ -1,6 +1,8 @@
 appName: Tập Viết
 profile: Trang cá nhân
-register: Đăng nhập / Đăng ký
+signIn: Đăng nhập
+signOut: Thoát
+
 # add-question
 addQuestion: Tạo câu hỏi
 addQuestionHeader: Điền câu hỏi tại đây

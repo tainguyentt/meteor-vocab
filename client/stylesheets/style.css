@@ -7,3 +7,15 @@
     margin-top: 20px;
     cursor: pointer;
 }
+.addAnswer {
+  cursor: pointer;
+  color: blue;
+}
+
+
+/*Login*/
+
+.sign-in-container {
+  max-width: 300px;
+  margin: 0 auto;
+}
