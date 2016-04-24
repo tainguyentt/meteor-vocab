@@ -1,8 +1,11 @@
 Template.displayQuestion.helpers({
-    'answers': function() {
+    allAnswers: function() {
         return Answers.find({questionId: this._id});
     },
-    'noAnswersFound': function() {
+    myAnswers: function() {
+        return Answers.find({questionId: this._id, createdBy: Meteor.userId()});
+    },
+    noAnswersFound: function() {
         return Answers.find({questionId: this._id}).count() === 0;
     },
     isAddingQuestionMode: function() {

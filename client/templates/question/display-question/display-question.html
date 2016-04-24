@@ -14,12 +14,28 @@
       {{#if noAnswersFound}}
           No answers found.
       {{else}}
-        <ul class="answers">
-            {{#each answers}} 
-              {{> answerItem}} 
-            {{/each}}
+        <ul class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#all-answers">All answers</a></li>
+          <li><a data-toggle="tab" href="#my-answers">My answers</a></li>
         </ul>
+        <div class="tab-content">
+          <div id="all-answers" class="tab-pane fade in active">
+            <ul class="answers">
+              {{#each allAnswers}} 
+                {{> answerItem}} 
+              {{/each}}
+            </ul>
+          </div>
+          <div id="my-answers" class="tab-pane fade">
+            <ul class="answers">
+              {{#each myAnswers}} 
+                {{> answerItem}} 
+              {{/each}}
+            </ul>
+          </div>
+        </div>
       {{/if}}
       {{> addAnswer}}
     {{/if}}
 </template>
+
