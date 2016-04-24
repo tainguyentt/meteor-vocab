@@ -1,0 +1,25 @@
+<template name="displayQuestion">
+    <h2>{{_ "displayedQuestion"}}</h2>
+    <div>
+        {{> questionItem}}
+    </div>
+    
+    {{#if isAddingQuestionMode}}
+      <a href="{{pathFor 'displayQuestion' _id=this._id}}">Add an answer</a>
+      <div class="btn">
+          <input class="addMore btn btn-success" type="button" value="{{_ 'addMore'}}" />
+          <input class="finished btn btn-primary" type="button" value="{{_ 'finished'}}" />
+      </div>
+    {{else}}
+      {{#if noAnswersFound}}
+          No answers found.
+      {{else}}
+        <ul class="answers">
+            {{#each answers}} 
+              {{> answerItem}} 
+            {{/each}}
+        </ul>
+      {{/if}}
+      {{> addAnswer}}
+    {{/if}}
+</template>
