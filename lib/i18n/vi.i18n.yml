@@ -5,11 +5,11 @@ signOut: Thoát
 
 # add-question
 addQuestion: Add question
-addQuestionHeader: Add your question here
+addQuestionHeader: Add your question
 type: Type
 content: Question
 topic: Topic
-create: Create
+create: Post your question
 # displayed-question
 displayedQuestion: Displayed question
 answer: Answer

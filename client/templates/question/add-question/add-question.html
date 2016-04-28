@@ -1,26 +1,24 @@
 <template name="addQuestion">
-    {{#if isLogin}}
-      <h2>{{_ "addQuestionHeader"}}</h2>
-      <form class="add-question">
+    <h2>{{_ "addQuestionHeader"}}</h2>
+
+    <form class="add-question">
         <span name="messages"></span>
-        <div class="row">
-            <label class="col-xs-2">{{_ "type"}}:</label>
-            <select name="questionType" class="col-xs-6" >
-              <option value="sentence">Sentence</option>
-              <option value="word">Word</option>
+        <fieldset class="form-group">
+            <label for="questionType">{{_ "type"}}</label>
+            <select id="questionType" name="questionType" class="form-control">
+                <option value="sentence">Sentence</option>
+                <option value="word">Word</option>
             </select>
-        </div>
-        <div class="row">
-            <label class="col-xs-2">{{_ "content"}}:</label>
-            <textarea name='questionContent' class="question col-xs-6"></textarea>
-        </div>
-        <div class="row">
-            <label class="col-xs-2">{{_ "topic"}}:</label>
-            <input class="col-xs-6"  type="text" name="questionTopic" placeholder="game, sport, ...">
-        </div>
-            <input class="btn btn-success" type="submit" value="{{_ 'create'}}" />
-      </form>
-    {{else}}
-      <h1> You need to login </h1>
-    {{/if}}
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="questionContent">{{_ "content"}}</label>
+            <textarea class="form-control" id="questionContent" name="questionContent" rows="3"></textarea>
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="questionTopic">{{_ "topic"}}</label>
+            <input type="text" class="form-control" id="questionTopic" name="questionTopic" placeholder="game, sport...">
+        </fieldset>
+        <br />
+        <button class="btn btn-primary" type="submit">{{_ 'create'}}</button>
+    </form>
 </template>

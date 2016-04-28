@@ -1,12 +1,3 @@
-Template.addQuestion.helpers({
-    'isLogin': function() {
-        var currentUserId = Meteor.userId();
-        if (currentUserId != null) {
-            return true;
-        }
-    }
-});
-
 Template.addQuestion.events({
     'submit form': function(event) {
         event.preventDefault();

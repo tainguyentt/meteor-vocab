@@ -3,17 +3,19 @@
     <div>
         {{> questionItem}}
     </div>
-    
-    {{#if isAddingQuestionMode}}
-      <a href="{{pathFor 'displayQuestion' _id=this._id}}">Add an answer</a>
-      <div class="btn">
-          <input class="addMore btn btn-success" type="button" value="{{_ 'addMore'}}" />
-          <input class="finished btn btn-primary" type="button" value="{{_ 'finished'}}" />
-      </div>
+
+    {{#if noAnswersFound}}
+      No answers found.
+    {{/if}}
+
+    {{#if isAnsweringMode}}
+        <hr />
+        {{#if answeredByCurrentUser}}
+          <p>You answered already.</p>
+        {{/if}}
+        {{> addAnswer}}
+        <button class="btn btn-warning pull-right js-check-answer">Skip</button>
     {{else}}
-      {{#if noAnswersFound}}
-          No answers found.
-      {{else}}
         <ul class="nav nav-tabs">
           <li class="active"><a data-toggle="tab" href="#all-answers">All answers</a></li>
           <li><a data-toggle="tab" href="#my-answers">My answers</a></li>
@@ -34,8 +36,7 @@
             </ul>
           </div>
         </div>
-      {{/if}}
-      {{> addAnswer}}
+        <button class="btn btn-success">Next question</button>
     {{/if}}
 </template>
 

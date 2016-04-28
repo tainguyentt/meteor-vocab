@@ -1,3 +1,7 @@
+Template.displayQuestion.onRendered(function() {
+  Session.set('answering-mode', true);
+});
+
 Template.displayQuestion.helpers({
     allAnswers: function() {
         return Answers.find({questionId: this._id});
@@ -8,8 +12,11 @@ Template.displayQuestion.helpers({
     noAnswersFound: function() {
         return Answers.find({questionId: this._id}).count() === 0;
     },
-    isAddingQuestionMode: function() {
-        return Session.get('addingQuestionMode');
+    answeredByCurrentUser: function() {
+        return Answers.find({questionId: this._id, createdBy: Meteor.userId()}).count() > 0;
+    },
+    isAnsweringMode: function() {
+        return Session.get('answering-mode');
     }
 });
 
@@ -23,5 +30,8 @@ Template.displayQuestion.events({
     },
     'click .finished': function() {
         Router.go("homePage");
+    },
+    'click .js-check-answer': function() {
+        Session.set('answering-mode', false);
     }
 });

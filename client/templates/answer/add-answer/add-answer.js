@@ -11,7 +11,7 @@ Template.addAnswer.events({
         console.log(error);
       }
       else {
-        $body.val('');
+        Session.set('answering-mode', false);
       }
     })
   }
