@@ -1,0 +1,42 @@
+<template name="displayQuestion">
+    <h2>{{_ "displayedQuestion"}}</h2>
+    <div>
+        {{> questionItem}}
+    </div>
+
+    {{#if noAnswersFound}}
+      No answers found.
+    {{/if}}
+
+    {{#if isAnsweringMode}}
+        <hr />
+        {{#if answeredByCurrentUser}}
+          <p>You answered already.</p>
+        {{/if}}
+        {{> addAnswer}}
+        <button class="btn btn-warning pull-right js-check-answer">Skip</button>
+    {{else}}
+        <ul class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#all-answers">All answers</a></li>
+          <li><a data-toggle="tab" href="#my-answers">My answers</a></li>
+        </ul>
+        <div class="tab-content">
+          <div id="all-answers" class="tab-pane fade in active">
+            <ul class="answers">
+              {{#each allAnswers}} 
+                {{> answerItem}} 
+              {{/each}}
+            </ul>
+          </div>
+          <div id="my-answers" class="tab-pane fade">
+            <ul class="answers">
+              {{#each myAnswers}} 
+                {{> answerItem}} 
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+        <button class="btn btn-success">Next question</button>
+    {{/if}}
+</template>
+

@@ -1,0 +1,9 @@
+<template name="questionList">
+    {{#each questions}} 
+      {{> questionItem}} 
+      <div>
+          <a class="btn btn-success" href="{{pathFor 'displayQuestion' _id}}">Answer</a>
+      </div>
+      <hr />
+    {{/each}}
+</template>
