@@ -5,10 +5,10 @@
         <span name="messages"></span>
         <div class="row">
             <label class="col-xs-2">{{_ "type"}}:</label>
-            <select name="questionType" class="col-xs-6" >
-              <option value="{{_ 'sentence'}}">{{_ "sentence"}}</option>
-              <option value="{{_ 'word'}}">{{_ "word"}}</option>
-              <option value="{{_ 'paragraph'}}">{{_ "paragraph"}}</option>
+            <select name="questionType"  class="col-xs-6" >
+              {{#each options}}
+                <option value="{{value}}">{{label}}</option>
+              {{/each}}
             </select>
         </div>
         <div class="row">

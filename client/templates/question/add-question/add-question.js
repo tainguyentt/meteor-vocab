@@ -19,10 +19,6 @@ Template.addQuestion.onRendered(function() {
   // if(currentUserId != null){
   //   isLogin = true;
   // }
-  // console.log("currentUserId", currentUserId);
-
-    var sss = TAPi18n.__('test');
-    console.log("test tapi18n", sss);
 });
 
 Template.addQuestion.helpers({
@@ -32,13 +28,21 @@ Template.addQuestion.helpers({
       return true;
     }
   },
-  /*'selectedClass': function(){
-    var playerId = this._id;
-    var selectedPlayer = Session.get("selectedPlayer");
-    if(playerId == selectedPlayer){
-      return "selected"
-    }
-  }*/
+ 'options': function(){
+    var options = [
+      {
+        value: TAPi18n.__('sentence'),
+        label: TAPi18n.__('sentence')
+      },{
+        value: TAPi18n.__('word'),
+        label: TAPi18n.__('word')
+      },{
+        value: TAPi18n.__('paragraph'),
+        label: TAPi18n.__('paragraph')
+      }
+  ]
+    return options;
+  }
 });
 
 /*Template.addQuestion.events({

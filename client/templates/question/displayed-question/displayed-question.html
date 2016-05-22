@@ -1,37 +1,62 @@
 <template name="displayedQuestion">
       <div class="row">
         <h3 class="col-xs-8">{{_ "displayedQuestion"}}</h3>
-         <span class="col-xs-4 edit-question  glyphicon glyphicon-edit" aria-hidden="true"></span>
+        <span class="col-xs-4 edit-question  glyphicon glyphicon-edit" aria-hidden="true"></span>
       </div>
-      <div class="row">
-          <label class="col-xs-2">{{_ "content"}}:</label>
-          <p name='questionContent' class="question">{{createdQuestion.content}}</p>
-      </div>
-      <div class="row">
-          <label class="col-xs-2">{{_ "type"}}:</label>
-          <p>{{createdQuestion.type}}</p>
-      </div>
-      <div class="row">
-          <label class="col-xs-2">{{_ "topic"}}:</label>
-          <p>{{createdQuestion.topic}}</p>
-      </div>
-      <div class="answer-list row">
-          <label class="col-xs-2">{{_ "answer"}}:</label>
-          {{#if answer != null}}
-            <ul class="list-answer">
-              {{#each answer}}
-                <div class="row">
-                  <label class="col-xs-2">{{answerBy}}:</label>
-                  <li class="answer {{selectedClass}}">{{content}}</li>
-                </div>
-              {{/each}}
-            </ul>
-          {{else}}
-            <p class="addAnswer">{{_ "addYourAnswer"}}</p>
-          {{/if}}
-      </div>
-      <div class="btn">
-        <input class="addMore btn btn-success" type="button" value="{{_ 'addMore'}}" />
-        <input class="finished btn btn-primary" type="button" value="{{_ 'finished'}}" />
-      </div>
+      {{#if isEditQuestion}}
+
+          <form class="edit-question">
+          <div class="row">
+              <label class="col-xs-2">{{_ "type"}}:</label>
+              <select name="questionType"  class="col-xs-6" >
+                {{#each options}}
+                  <option value="{{value}}" {{selectedQuestionType(value)}}>{{label}}</option>
+                {{/each}}
+              </select>
+          </div>
+          <div class="row">
+              <label class="col-xs-2">{{_ "content"}}:</label>
+              <textarea name='questionContent' class="question col-xs-6">{{content}}</textarea>
+          </div>
+          <div class="row">
+              <label class="col-xs-2">{{_ "topic"}}:</label>
+              <input class="col-xs-6"  type="text" name="questionTopic" value="{{topic}}">
+          </div>
+              <input class="btn btn-success" type="submit" value="{{_ 'save'}}" />
+        </form>
+      {{else}}
+          <div class="row">
+              <label class="col-xs-2">{{_ "content"}}:</label>
+              <p name='questionContent' class="question">{{content}}</p>
+          </div>
+          <div class="row">
+              <label class="col-xs-2">{{_ "type"}}:</label>
+              <p>{{type}}</p>
+          </div>
+          <div class="row">
+            {{#if topic}}
+              <label class="col-xs-2">{{_ "topic"}}:</label>
+              <p>{{topic}}</p>
+            {{/if}}
+          </div>
+          <div class="answer-list row">
+              <label class="col-xs-2">{{_ "answer"}}:</label>
+              {{#if answer}}
+                <ul class="list-answer">
+                  {{#each answer}}
+                    <div class="row">
+                      <label class="col-xs-2">{{answerBy}}:</label>
+                      <li class="answer {{selectedClass}}">{{content}}</li>
+                    </div>
+                  {{/each}}
+                </ul>
+              {{else}}
+                <p class="addAnswer">{{_ "addYourAnswer"}}</p>
+              {{/if}}
+          </div>
+          <div class="btn">
+            <input class="addMore btn btn-success" type="button" value="{{_ 'addMore'}}" />
+            <input class="finished btn btn-primary" type="button" value="{{_ 'finished'}}" />
+          </div>
+      {{/if}}
 </template>

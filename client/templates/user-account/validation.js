@@ -15,13 +15,8 @@ $.validator.setDefaults({
   },
   messages: {
     email: {
-<<<<<<< HEAD:client/templates/registration/validation.js
-      required: TAPi18n.__('test'),
-      email: TAPi18n.__('test')
-=======
       required: TAPi18n.__('requiredEmail'),
       email: TAPi18n.__('invalidEmail')
->>>>>>> master:client/templates/user-account/validation.js
     },
     password: {
       required: TAPi18n.__('requiredPassword'),
