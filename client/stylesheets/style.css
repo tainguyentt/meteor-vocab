@@ -23,3 +23,13 @@
 textarea {
   resize: vertical;
 }
+
+.topic-list, .question-list, .type-list{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14;
+}
+.question-list{
+  color: blue;
+  cursor: pointer;
+}

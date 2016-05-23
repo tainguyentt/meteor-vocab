@@ -1,9 +1,16 @@
 <template name="questionList">
-    {{#each questions}} 
-      {{> questionItem}} 
-      <div>
-          <a class="btn btn-success" href="{{pathFor 'displayQuestion' _id}}">Answer</a>
-      </div>
-      <hr />
+	<div class="header row">
+        <div class="col-xs-6">{{_ "content"}}</div>
+        <div class="col-xs-2">{{_ "type"}}</div>
+        <div class="col-xs-3">{{_ "topic"}}</div>
+        <div class="col-xs-1">{{_ "vote"}}</div>
+    </div>
+    {{#each questions}}
+      <div class="item row">
+        <div class="question-list col-xs-6"><p name='questionContent'>{{content}}</p></div>
+        <div class="type-list col-xs-2"><p>{{type}}</p></div>
+        <div class="topic-list col-xs-3"><p>{{topic}}</p> </div>
+        <div class="topic-list col-xs-1"><p>11</p></div>
+    </div>
     {{/each}}
 </template>
