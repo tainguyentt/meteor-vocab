@@ -1,5 +1,5 @@
 <template name="questionList">
-	<div class="header row">
+    <div class="header row">
         <div class="col-xs-5">{{_ "content"}}</div>
         <div class="col-xs-1">{{_ "type"}}</div>
         <div class="col-xs-3">{{_ "topic"}}</div>
@@ -7,15 +7,25 @@
         <div class="col-xs-2">Actions</div>
     </div>
     {{#each questions}}
-	    <div class="item row">
-	        <div class="question-list col-xs-5"><p name='questionContent'>{{content}}</p></div>
-	        <div class="type-list col-xs-1"><p>{{type}}</p></div>
-	        <div class="topic-list col-xs-3"><p>{{topic}}</p> </div>
-	        <div class="topic-list col-xs-1"><p>11</p></div>
-	        <div class="col-xs-2"> 
-	        	<a href="{{pathFor 'displayQuestion' _id}}">Answer</a>
-	          	<a href="{{pathFor 'editQuestion' _id}}">Edit</a>
-	    	</div>
-	    </div>
+    <div class="item row">
+        <div class="question-list col-xs-5">
+            <p name='questionContent'>{{content}}</p>
+        </div>
+        <div class="type-list col-xs-1">
+            <p>{{type}}</p>
+        </div>
+        <div class="topic-list col-xs-3">
+            <p>{{topic}}</p>
+        </div>
+        <div class="topic-list col-xs-1">
+            <p>11</p>
+        </div>
+        <div class="col-xs-2">
+            <a href="{{pathFor 'displayQuestion' _id}}">{{_ "answer"}}</a>
+            {{#if isAuthor userId}}
+              <a href="{{pathFor 'editQuestion' _id}}">{{_ "edit"}}</a>
+            {{/if}}
+        </div>
+    </div>
     {{/each}}
 </template>
