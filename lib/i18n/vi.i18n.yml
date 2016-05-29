@@ -11,11 +11,16 @@ type: Loại
 content: Câu hỏi
 topic: Chủ đề
 create: Tạo
+edit: Sửa
 sentence: Câu văn
-word: Cụm từ
+word: Cụm từ
 paragraph: Đoạn văn
+# edit-question
+editQuestionHeader: Sửa câu hỏi
+# question-list
+questionList: Danh sách câu hỏi
 # displayed-question
-displayedQuestion: Câu hỏi của bạn
+displayedQuestion: Câu hỏi
 answer: Trả lời
 addYourAnswer: thêm câu trả lời
 addMore: Tạo tiếp

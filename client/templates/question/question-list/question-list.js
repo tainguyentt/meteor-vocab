@@ -4,3 +4,9 @@ Template.questionList.events({
         Router.go('displayQuestion', { _id: itemId });
     }
 });
+
+Template.questionList.helpers({
+  isAuthor: function(userId) {
+    return userId === Meteor.userId();
+  }
+});
