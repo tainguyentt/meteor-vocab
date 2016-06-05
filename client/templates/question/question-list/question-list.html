@@ -18,7 +18,11 @@
             <p>{{topic}}</p>
         </div>
         <div class="topic-list col-xs-1">
-            <p>11</p>
+            {{#if voters}}
+                <p>{{voters.length}}</p>
+            {{else}}
+                <p>0</p>
+            {{/if}}
         </div>
         <div class="col-xs-2">
             <a href="{{pathFor 'displayQuestion' _id}}">{{_ "answer"}}</a>

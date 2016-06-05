@@ -2,6 +2,8 @@ appName: Tập Viết
 profile: Trang cá nhân
 signIn: Đăng nhập
 signOut: Thoát
+listQuestionAnswerByMe: Danh sách câu trả lời
+listMyQuestion: Các câu hỏi của tôi
 
 # add-question
 addQuestion: Tạo câu hỏi
