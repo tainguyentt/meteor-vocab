@@ -16,7 +16,7 @@ Template.editQuestion.events({
         }
         Questions.update(questionId, {$set: question}, function(error) {
           if(error) {
-            console.log("Could not update question:", error);
+            throwError(error.reason);
           } else {
             Router.go('displayQuestion', {_id: questionId});
           }

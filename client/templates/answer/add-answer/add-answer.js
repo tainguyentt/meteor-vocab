@@ -8,7 +8,7 @@ Template.addAnswer.events({
     }
     Meteor.call('insertAnswer', answer, function(error, result) {
       if(error) {
-        console.log(error);
+        throwError(error.reason);
       }
       else {
         Session.set('answering-mode', false);
