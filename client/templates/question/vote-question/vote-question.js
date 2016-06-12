@@ -1,6 +1,11 @@
 Template.voteQuestion.helpers({
     voteCount: function() {
-        return this.voters.length;
+        if(this.voters){
+            return this.voters.length;
+        }
+    },
+    isVoted: function(){
+        return this.voters;
     }
 });
 

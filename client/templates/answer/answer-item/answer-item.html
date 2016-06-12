@@ -4,7 +4,9 @@
 			<p>{{content}}</p>
 		</div>
 		<div class="col-xs-2 vote">
+		{{#if isVoted}}
 			{{voteCount}} votes 
+		{{/if}}
 			<!-- {{#if isVote}} -->
 				<span id="vote-answer" class="glyphicon glyphicon-thumbs-up vote-icon" ></span>
 			<!-- {{/if}} -->

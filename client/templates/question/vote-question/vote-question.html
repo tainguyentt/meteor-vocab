@@ -1,3 +1,7 @@
 <template name="voteQuestion">
-    {{voteCount}} votes. <a href="#"><h4><span id="vote-question" class="glyphicon glyphicon-thumbs-up vote-icon"></span></h4></a>
+    {{#if isVoted}}
+    	{{voteCount}} votes. 
+    {{/if}}
+    <a href="#"><h4><span id="vote-question" class="glyphicon glyphicon-thumbs-up vote-icon"></span></h4></a>
+    
 </template>

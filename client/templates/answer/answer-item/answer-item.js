@@ -13,7 +13,8 @@ Template.answerItem.helpers({
 		return this.voters.length;
 	},
 	isVoted: function() {
-        return Session.get('already-answer');
+        //return Session.get('already-answer');
+        return this.voters.length > 0;
     }
 });
 
@@ -23,7 +24,7 @@ Template.answerItem.events({
         var userId = Meteor.userId();
         if (this.voters && this.voters.includes(userId)) {
         	Session.set('already-answer', true);
-            alert('You cannot vote 2 times.');
+            throwError('You cannot vote 2 times.');
         } else {
             var answerId = this._id;
             Answers.update(answerId, { $push: { voters: userId } }, function(error) {
