@@ -1,34 +1,39 @@
-.addAnswer{
-	cursor: pointer;
-	color: blue;
+.addAnswer {
+    cursor: pointer;
+    color: blue;
 }
-.edit-question{
-	font-size: 20px;
+
+.edit-question {
+    font-size: 20px;
     margin-top: 20px;
     cursor: pointer;
 }
+
 .addAnswer {
-  cursor: pointer;
-  color: blue;
+    cursor: pointer;
+    color: blue;
 }
 
 
 /*Login*/
 
 .sign-in-container {
-  max-width: 300px;
-  margin: 0 auto;
+    max-width: 300px;
+    margin: 0 auto;
 }
 
 textarea {
-  resize: vertical;
+    resize: vertical;
 }
 
-.topic-list, .question-list, .type-list{
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 14;
+.topic-list,
+.question-list,
+.type-list {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14;
 }
+
 .question-list{
   color: blue;
   cursor: pointer;
@@ -37,4 +42,34 @@ textarea {
   font-size: 2em;
   cursor: pointer;
   color: yellowgreen;
+
+/* Errors */
+
+.errors {
+    position: fixed;
+    z-index: 10000;
+    padding: 10px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    pointer-events: none;
+}
+
+.alert {
+    animation: fadeOut 2700ms ease-in 0s 1 forwards;
+    -webkit-animation: fadeOut 2700ms ease-in 0s 1 forwards;
+    -moz-animation: fadeOut 2700ms ease-in 0s 1 forwards;
+    width: 250px;
+    float: right;
+    clear: both;
+    margin-bottom: 5px;
+    pointer-events: auto;
+}
+
+@keyframes fadeOut {
+  0% {opacity: 0;}
+  10% {opacity: 1;}
+  90% {opacity: 1;}
+  100% {opacity: 0;}
 }

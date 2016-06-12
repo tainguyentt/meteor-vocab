@@ -8,7 +8,7 @@ Template.addQuestion.events({
         }
         Meteor.call('insertQuestion', question, function(error, result) {
             if (error) {
-                console.log("Could not create question:", error);
+                throwError(error.reason);
             } else {
                 Session.set('addingQuestionMode', true);
                 Router.go('displayQuestion', { _id: result._id });
