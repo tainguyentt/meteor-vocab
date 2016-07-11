@@ -9,6 +9,7 @@ Template.addQuestion.events({
             if (error) {
                 throwError(error.reason);
             } else {
+                updateUserPoints(Meteor.userId(), 1);
                 Session.set('addingQuestionMode', true);
                 Router.go('displayQuestion', { _id: result._id });
             }

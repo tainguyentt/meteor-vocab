@@ -23,5 +23,13 @@ Template.header.helpers({
       return user.emails[0].address;
 
     return '';
+  },
+  userPoints: function() {
+    var user = Meteor.user();
+    if (!user)
+      return 0;
+    if (user.profile && user.profile.points)
+      return user.profile.points;
+    return 0;
   }
 });
