@@ -1,14 +1,19 @@
 <template name="answerItem">
-	<div class="row">
-		<div class="col-xs-4">
+	<div class="row answer-item">
+		<div class="col-xs-6 content-answer">
 			<p>{{content}}</p>
 		</div>
-		<div class="col-xs-2 vote">
-		{{#if isVoted}}
-			{{voteCount}} votes 
-		{{/if}}
-			<!-- {{#if isVote}} -->
+		<div class="col-xs-3 vote vote-answer">
+			<div class="vote-answer">
+					{{#if isVoted}}
+						{{voteCount}} {{_ "votes"}}
+					{{/if}}
+			</div>
+			<div class="">
 				<span id="vote-answer" class="glyphicon glyphicon-thumbs-up vote-icon" ></span>
+			</div>
+			<!-- {{#if isVote}} -->
+				
 			<!-- {{/if}} -->
 		</div>
 	</div>

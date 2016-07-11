@@ -10,7 +10,7 @@ Template.answerItem.helpers({
 		return this.createdAt.toDateString();
 	},
 	voteCount: function() {
-		return this.voters.length;
+		return this.voters.length.toString();
 	},
 	isVoted: function() {
         //return Session.get('already-answer');
