@@ -1,8 +1,4 @@
 Template.editQuestion.helpers({
-  hasQuestionType: function(questionType) {
-    console.log(questionType);
-    return this.type === questionType ? 'selected' : '';
-  }
 })
 
 Template.editQuestion.events({
@@ -10,7 +6,6 @@ Template.editQuestion.events({
         event.preventDefault();
         var questionId = this._id;
         var question = {
-            type: event.target.questionType.value,
             content: event.target.questionContent.value,
             topic: event.target.questionTopic.value
         }

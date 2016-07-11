@@ -2,7 +2,6 @@ Template.addQuestion.events({
     'submit form': function(event) {
         event.preventDefault();
         var question = {
-            type: event.target.questionType.value,
             content: event.target.questionContent.value,
             topic: event.target.questionTopic.value
         }

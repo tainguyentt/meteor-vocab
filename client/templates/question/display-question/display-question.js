@@ -41,10 +41,6 @@ Template.displayQuestion.helpers({
             }
         ]
         return options;
-    },
-    'selectedQuestionType': function(value){
-        var selectedValue = Session.get('questionFindByIdSession');
-        return  (selectedValue.type === value) ? 'selected' : '';
     }
 });
 
@@ -67,10 +63,9 @@ Template.displayQuestion.events({
       },
       'submit form': function(event, template){
         event.preventDefault();
-        var questionType = event.target.questionType.value;
         var questionContent = event.target.questionContent.value;
         var questionTopic = event.target.questionTopic.value;
-        Meteor.call("updateQuestion", template.data._id,questionType,questionContent,questionTopic, function(error){
+        Meteor.call("updateQuestion", template.data._id,questionContent,questionTopic, function(error){
           if(error) {
             console.log(error);
           }
