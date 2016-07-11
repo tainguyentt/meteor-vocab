@@ -27,6 +27,7 @@ Template.answerItem.events({
             throwError('You cannot vote 2 times.');
         } else {
             var answerId = this._id;
+            updateUserPoints(this.createdBy, 2);
             Answers.update(answerId, { $push: { voters: userId } }, function(error) {
                 if (error) {
                     console.log("Could not update question:", error);

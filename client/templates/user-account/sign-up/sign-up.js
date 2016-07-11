@@ -7,7 +7,7 @@ Template.signUp.onRendered(function() {
       Accounts.createUser({
         email: email,
         password: password,
-        profile: {name: name}
+        profile: {name: name, points: 10}
       }, function(error) {
         if (error) {
           validator.showErrors({

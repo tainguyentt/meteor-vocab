@@ -11,6 +11,7 @@ Template.addAnswer.events({
         throwError(error.reason);
       }
       else {
+        updateUserPoints(Meteor.userId(), 1);
         Session.set('answering-mode', false);
       }
     })

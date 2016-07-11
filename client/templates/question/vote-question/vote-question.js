@@ -17,6 +17,7 @@ Template.voteQuestion.events({
             throwError("You already voted for this");
         } else {
             var questionId = this._id;
+            updateUserPoints(this.userId, 2);
             Questions.update(questionId, { $push: { voters: userId } }, function(error) {
                 if (error) {
                     throwError(error.reason);
