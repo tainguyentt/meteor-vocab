@@ -1,5 +1,5 @@
 Template.addAnswer.events({
-  'submit form': function(e, template) {
+  'submit form.answer-form': function(e, template) {
     e.preventDefault();
     var $body = $(e.target).find('[name=body]');
     var answer = {
@@ -13,6 +13,7 @@ Template.addAnswer.events({
       else {
         updateUserPoints(Meteor.userId(), 1);
         Session.set('answering-mode', false);
+        $body.val('');
       }
     })
   }

@@ -1,20 +1,16 @@
 <template name="answerItem">
-	<div class="row answer-item">
-		<div class="col-xs-6 content-answer">
-			<p>{{content}}</p>
-		</div>
-		<div class="col-xs-3 vote vote-answer">
-			<div class="vote-answer">
-					{{#if isVoted}}
-						{{voteCount}} {{_ "votes"}}
-					{{/if}}
-			</div>
-			<div class="">
-				<span id="vote-answer" class="glyphicon glyphicon-thumbs-up vote-icon" ></span>
-			</div>
-			<!-- {{#if isVote}} -->
-				
-			<!-- {{/if}} -->
-		</div>
-	</div>
+    <div class="row answer-item">
+        <div class="col-xs-1 answer-author text-center">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span> User
+        </div>
+        <div class="col-xs-10 content-answer">
+            <p>{{content}}</p>
+        </div>
+        <div class="col-xs-1 text-center">
+            <a href="#" class="vote-answer">
+            	<span class="glyphicon glyphicon-thumbs-up icon-black"></span>
+            </a>
+            <div>{{voteCount}}</div>
+        </div>
+    </div>
 </template>

@@ -1,10 +1,10 @@
 Template.voteQuestion.helpers({
     voteCount: function() {
-        if(this.voters){
+        if (this.voters) {
             return this.voters.length;
         }
     },
-    isVoted: function(){
+    isVoted: function() {
         return this.voters;
     }
 });
@@ -17,10 +17,11 @@ Template.voteQuestion.events({
             throwError("You already voted for this");
         } else {
             var questionId = this._id;
-            updateUserPoints(this.userId, 2);
-            Questions.update(questionId, { $push: { voters: userId } }, function(error) {
+            Meteor.call('voteQuestion', questionId, userId, function(error) {
                 if (error) {
                     throwError(error.reason);
+                } else {
+                    updateUserPoints(this.userId, 2);
                 }
             })
         }
