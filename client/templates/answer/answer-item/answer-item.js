@@ -22,12 +22,13 @@ Template.answerItem.events({
         e.preventDefault();
         var userId = Meteor.userId();
         var answerId = this._id;
+        var askerId = this.createdBy;
         if (this.voters && this.voters.includes(userId)) {
             Meteor.call('unvoteAnswer', answerId, userId, function(error) {
                 if (error) {
                     console.log("Could not update answer:", error);
                 } else {
-                    updateUserPoints(this.createdBy, -2);
+                    updateUserPoints(askerId, -2);
                 }
             });
         } else {
@@ -35,7 +36,7 @@ Template.answerItem.events({
                 if (error) {
                     console.log("Could not update answer:", error);
                 } else {
-                    updateUserPoints(this.createdBy, 2);
+                    updateUserPoints(askerId, 2);
                 }
             });
         }

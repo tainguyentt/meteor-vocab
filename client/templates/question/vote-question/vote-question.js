@@ -13,15 +13,22 @@ Template.voteQuestion.events({
     'click #vote-question': function(e) {
         e.preventDefault();
         var userId = Meteor.userId();
+        var questionId = this._id;
+        var authorId = this.userId;
         if (this.voters && this.voters.includes(userId)) {
-            throwError("You already voted for this");
+            Meteor.call('unvoteQuestion', questionId, userId, function(error) {
+                if (error) {
+                    throwError(error.reason);
+                } else {
+                    updateUserPoints(authorId, -2);
+                }
+            })
         } else {
-            var questionId = this._id;
             Meteor.call('voteQuestion', questionId, userId, function(error) {
                 if (error) {
                     throwError(error.reason);
                 } else {
-                    updateUserPoints(this.userId, 2);
+                    updateUserPoints(authorId, 2);
                 }
             })
         }
