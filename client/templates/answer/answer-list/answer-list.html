@@ -1,20 +1,3 @@
 <template name="listQuestionAnswerByMe">
-	<div class="header row">
-        <div class="col-xs-5">{{_ "content"}}</div>
-        <div class="col-xs-3">{{_ "topic"}}</div>
-        <div class="col-xs-2">{{_ "vote"}}</div>
-    </div>
-    {{#each  listQuestionAnswerByMe}}
-	    <div class="item row">
-	        <div class="question-list col-xs-5"><p name='questionContent'>{{question.content}}</p></div>
-	        <div class="topic-list col-xs-3"><p>{{question.topic}}</p> </div>
-	        <div class="topic-list col-xs-2">
-		        {{#if question.voters}}
-		        	<p>{{question.voters.length}}</p>
-		        {{else}}
-		        	<p>0</p>
-		        {{/if}}
-	        </div>
-	    </div>
-    {{/each}}
+    {{> questionList questions=listQuestionAnsweredByMe}}
 </template>
