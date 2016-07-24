@@ -2,10 +2,13 @@
     <form class="answer-form form">
         <div class="form-group">
             <div class="controls">
-                <textarea name="body" id="body" class="form-control" rows="3" placeholder="Đáp án của bạn"></textarea>
+                <input name="body" id="body" class="form-control" rows="3" placeholder="Đáp án của bạn">
                 <!-- <span class="help-block">{{errorMessage 'body'}}</span> -->
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Gửi</button>
+        <div class="text-right">
+            <a class="skip-answer" href="{{pathFor 'displayQuestion' _id}}">Xem đáp án</a>
+            <button type="submit" class="btn btn-primary">Gửi</button>
+        </div>
     </form>
 </template>

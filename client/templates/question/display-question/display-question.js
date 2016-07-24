@@ -1,7 +1,3 @@
-Template.displayQuestion.onRendered(function() {
-    Session.set('answering-mode', true);
-});
-
 Template.displayQuestion.helpers({
     allAnswers: function() {
         return Answers.find({ questionId: this._id });

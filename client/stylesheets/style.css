@@ -47,6 +47,10 @@ textarea {
   margin-top: 5px;
 }
 
+.skip-answer {
+  margin-right: 10px;
+}
+
 .answers-container {
   margin-top: 20px;
 }
@@ -56,6 +60,10 @@ textarea {
   margin: 10px 0;
   padding: 5px 0;
   background-color: #f5f5f5;
+}
+
+.vote-question {
+  margin-right: 10px;
 }
 
 

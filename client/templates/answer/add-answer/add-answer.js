@@ -2,9 +2,10 @@ Template.addAnswer.events({
   'submit form.answer-form': function(e, template) {
     e.preventDefault();
     var $body = $(e.target).find('[name=body]');
+    var questionId = template.data._id;
     var answer = {
       content: $body.val(),
-      questionId: template.data._id
+      questionId: questionId
     }
     Meteor.call('insertAnswer', answer, function(error, result) {
       if(error) {
@@ -12,8 +13,7 @@ Template.addAnswer.events({
       }
       else {
         updateUserPoints(Meteor.userId(), 1);
-        Session.set('answering-mode', false);
-        $body.val('');
+        Router.go('displayQuestion', {_id: questionId});
       }
     })
   }

@@ -1,51 +1,32 @@
 <template name="displayQuestion">
-    <div>
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <legend>Dịch sang tiếng Anh
-                    <p class="pull-right">{{> voteQuestion}}</p>
-                </legend>
-                <h4 class="text-center question-content">{{content}}</h4>
-            </div>
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <span class="badge">{{topic}}</span>
-                    <a href="#"><span class="glyphicon glyphicon-comment"></span> Trả lời</a>
-                </li>
-                <li class="list-group-item">
-                    {{#if noAnswersFound}}
-                        Chưa có câu trả lời nào.
-                    {{else}}
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#all-answers">Tất cả câu trả lời</a></li>
-                            <li><a data-toggle="tab" href="#my-answers">Câu trả lời của tôi</a></li>
-                        </ul>
-                        <div class="tab-content answers-container">
-                            <div id="all-answers" class="tab-pane fade in active">
-                                {{#each allAnswers}}
-                                    {{> answerItem}}
-                                {{/each}}
-                            </div>
-                            <div id="my-answers" class="tab-pane fade">
-                                {{#each myAnswers}}
-                                    {{> answerItem}}
-                                {{/each}}
-                            </div>
-                        </div>
-                    {{/if}}
-                </li>
-            </ul>
-            <div class="panel-footer">
-                {{> addAnswer}}
-            </div>
-        </div>
-    </div>
-    <!--    {{#if isAnsweringMode}}
-        <hr />
-        {{#if answeredByCurrentUser}}
-          <p>You answered already.</p>
-        {{/if}}
-        {{> addAnswer}}
-    {{else}} -->
-    <!-- {{/if}} -->
+    {{> questionItem}}
+    <ul class="list-group">
+        <li class="list-group-item">
+            <span class="badge">{{topic}}</span>
+            <p class="pull-left">{{> voteQuestion}}</p>
+            <a href="{{pathFor 'answerQuestion' _id}}"><span class="glyphicon glyphicon-comment"></span> Trả lời</a>
+        </li>
+        <li class="list-group-item">
+            {{#if noAnswersFound}}
+                Chưa có câu trả lời nào.
+            {{else}}
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#all-answers">Tất cả câu trả lời</a></li>
+                    <li><a data-toggle="tab" href="#my-answers">Câu trả lời của tôi</a></li>
+                </ul>
+                <div class="tab-content answers-container">
+                    <div id="all-answers" class="tab-pane fade in active">
+                        {{#each allAnswers}}
+                            {{> answerItem}}
+                        {{/each}}
+                    </div>
+                    <div id="my-answers" class="tab-pane fade">
+                        {{#each myAnswers}}
+                            {{> answerItem}}
+                        {{/each}}
+                    </div>
+                </div>
+            {{/if}}
+        </li>
+    </ul>
 </template>

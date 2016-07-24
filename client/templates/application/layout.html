@@ -1,10 +1,14 @@
 <template name="layout">
-  <div class="container">
-    {{> header}} 
-    {{> errors}}
-    <div id="main" class="col-lg-9">
-      {{> yield}}
+    {{> header}}
+    <div class="container">
+        <div class="main">
+            <div class="section">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        {{> errors}} {{> yield}}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="ads" class="col-lg-3"></div>
-  </div>
 </template>
