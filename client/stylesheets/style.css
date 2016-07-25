@@ -97,3 +97,8 @@ textarea {
   90% {opacity: 1;}
   100% {opacity: 0;}
 }
+
+/* Material kit */
+.card .header {
+  margin-top: -20px;
+}

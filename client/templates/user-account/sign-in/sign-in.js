@@ -1,5 +1,5 @@
 Template.signIn.onRendered(function() {
-  var validator = $('.sign-in').validate({
+  var validator = $('#sign-in-form').validate({
     submitHandler: function(form) {
       var email = form.email.value;
       var password = form.password.value;

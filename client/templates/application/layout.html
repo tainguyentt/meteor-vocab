@@ -12,3 +12,10 @@
         </div>
     </div>
 </template>
+
+<template name="layout2">
+    {{> header}}
+    <div class="container">
+        {{> errors}} {{> yield}}
+    </div>
+</template>

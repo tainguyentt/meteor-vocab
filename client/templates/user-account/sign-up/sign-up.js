@@ -1,5 +1,5 @@
 Template.signUp.onRendered(function() {
-  var validator = $('.sign-up').validate({
+  var validator = $('#sign-up-form').validate({
     submitHandler: function(form) {
       var name = form.name.value;
       var email = form.email.value;
