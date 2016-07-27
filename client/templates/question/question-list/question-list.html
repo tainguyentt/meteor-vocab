@@ -21,7 +21,7 @@
             {{/if}}
         </div>
         <div class="col-xs-2">
-            <a href="{{pathFor 'displayQuestion' _id}}">{{_ "answer"}}</a>
+            <a href="{{pathFor 'answerQuestion' _id}}">{{_ "answer"}}</a>
             {{#if isAuthor userId}}
               <a href="{{pathFor 'editQuestion' _id}}">{{_ "edit"}}</a>
             {{/if}}
