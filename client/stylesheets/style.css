@@ -89,3 +89,11 @@ textarea {
   90% {opacity: 1;}
   100% {opacity: 0;}
 }
+
+.selectize-control.multi .selectize-input > div {
+    cursor: pointer;
+    margin: 0 3px 3px 0;
+    padding: 2px 6px;
+    background: #9ce4e8 !important;
+    border: none;
+  }
