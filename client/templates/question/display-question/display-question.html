@@ -4,7 +4,7 @@
         <li class="list-group-item">
             <span class="badge">{{topic}}</span>
             <p class="pull-left">{{> voteQuestion}}</p>
-            <a href="{{pathFor 'answerQuestion' _id}}"><span class="glyphicon glyphicon-comment"></span> Trả lời</a>
+            <a href="{{pathFor 'answerQuestion' _id}}"><i class="material-icons">question_answer</i> Trả lời</a>
         </li>
         <li class="list-group-item">
             {{#if noAnswersFound}}

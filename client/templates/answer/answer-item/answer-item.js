@@ -12,8 +12,13 @@ Template.answerItem.helpers({
     voteCount: function() {
         return this.voters ? this.voters.length : 0;
     },
-    isVoted: function() {
-        return this.voters && this.voters.length > 0;
+    voted: function() {
+        return this.voters && this.voters.includes(Meteor.userId());
+    },
+    username: function() {
+        let user = Meteor.users.findOne(this.createdBy);
+        let name = user.profile.name;
+        return name;
     }
 });
 

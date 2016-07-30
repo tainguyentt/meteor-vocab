@@ -6,6 +6,9 @@ Template.voteQuestion.helpers({
     },
     isVoted: function() {
         return this.voters;
+    },
+    voted: function() {
+        return this.voters && this.voters.includes(Meteor.userId());
     }
 });
 
