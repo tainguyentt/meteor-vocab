@@ -16,3 +16,36 @@ Template.addQuestion.events({
         });
     }
 });
+Template.addQuestion.onRendered(function(){
+    $('#select-links').selectize({
+      maxItems: null,
+      valueField: 'id',
+      searchField: 'title',
+      options: [
+        {id: 1, title: 'Kinh Te', url: 'https://diy.org'},
+        {id: 2, title: 'Van Hoc', url: 'http://google.com'},
+        {id: 3, title: 'An Uong', url: 'http://yahoo.com'},
+        {id: 4, title: 'Nau An', url: 'https://diy.org'},
+        {id: 5, title: 'CNTT', url: 'http://google.com'},
+        {id: 6, title: 'Facebook', url: 'http://yahoo.com'},
+      ],
+      render: {
+        option: function(data, escape) {
+          return    '<div class="option">' +
+                      '<span class="title">' + escape(data.title) + '</span>' +
+                    '</div>';
+        },
+        item: function(data, escape) {
+          return '<div class="item"><a href="' + escape(data.url) + '">' + escape(data.title) + '</a></div>';
+        }
+      },
+      create: function(input) {
+        return {
+          id: 0,
+          title: input,
+          url: '#'
+        };
+      }
+    });
+
+});
