@@ -26,3 +26,8 @@ Meteor.publish('listQuestionAnswerByMe', function(userId) {
 Meteor.publish('listMyQuestion', function(userId) {
     return Questions.find({ userId: userId });
 })
+
+// Client subscribes to this channel will get a list of all topics
+Meteor.publish('topics', function() {
+    return Topics.find();
+});

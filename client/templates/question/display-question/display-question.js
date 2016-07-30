@@ -23,18 +23,13 @@ Template.displayQuestion.helpers({
     'isEditQuestion': function() {
         return Session.equals('editQuestion', 'true');
     },
-    'options': function() {
-        var options = [{
-            value: TAPi18n.__('sentence'),
-            label: TAPi18n.__('sentence')
-        }, {
-            value: TAPi18n.__('word'),
-            label: TAPi18n.__('word')
-        }, {
-            value: TAPi18n.__('paragraph'),
-            label: TAPi18n.__('paragraph')
-        }]
-        return options;
+    'topic': function(topics){
+        var listTopic = [];
+        for(var i in topics){
+           var topic = Topics.findOne(topics[i]);
+           listTopic.push(topic.content);
+        }
+        return listTopic;
     }
 });
 

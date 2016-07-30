@@ -1,9 +1,17 @@
+var topics = [];
+
 Template.addQuestion.events({
     'submit form': function(event) {
+        var questionTopics = [];
         event.preventDefault();
+        for(var i in topics){
+            questionTopics.push({
+                content: topics[i]
+            });
+        }
         var question = {
             content: event.target.questionContent.value,
-            topic: event.target.questionTopic.value
+            topics: questionTopics
         }
         Meteor.call('insertQuestion', question, function(error, result) {
             if (error) {
@@ -14,38 +22,52 @@ Template.addQuestion.events({
                 Router.go('displayQuestion', { _id: result._id });
             }
         });
+        
     }
 });
 Template.addQuestion.onRendered(function(){
-    $('#select-links').selectize({
-      maxItems: null,
-      valueField: 'id',
-      searchField: 'title',
-      options: [
-        {id: 1, title: 'Kinh Te', url: 'https://diy.org'},
-        {id: 2, title: 'Van Hoc', url: 'http://google.com'},
-        {id: 3, title: 'An Uong', url: 'http://yahoo.com'},
-        {id: 4, title: 'Nau An', url: 'https://diy.org'},
-        {id: 5, title: 'CNTT', url: 'http://google.com'},
-        {id: 6, title: 'Facebook', url: 'http://yahoo.com'},
-      ],
-      render: {
-        option: function(data, escape) {
-          return    '<div class="option">' +
-                      '<span class="title">' + escape(data.title) + '</span>' +
-                    '</div>';
-        },
-        item: function(data, escape) {
-          return '<div class="item"><a href="' + escape(data.url) + '">' + escape(data.title) + '</a></div>';
+    var select = $('#input-tags').selectize({
+        delimiter: ',',
+        persist: false,
+        create: function(input) {
+            return {
+                value: input,
+                text: input
+            }
         }
-      },
-      create: function(input) {
-        return {
-          id: 0,
-          title: input,
-          url: '#'
-        };
-      }
     });
+    var allTopic = Topics.find().fetch();
+    var listTopic = [];
+    for(i in allTopic){
+        listTopic.push({
+            content: allTopic[i].content,
+            id: allTopic[i]._id
+        })
+    }
 
+    $('#select-links').selectize({
+        plugins: ['remove_button'],
+        maxItems: null,
+        valueField: 'content',
+        searchField: 'content',
+        options: listTopic,
+        render: {
+            option: function(data, escape) {
+                return  '<div class="option">' +
+                            '<span class="title">' + escape(data.content) + '</span>' +
+                        '</div>';
+            },
+            item: function(data, escape) {
+              return '<div class="item"><a href="' + escape(data.url) + '">' + escape(data.content) + '</a></div>';
+            }
+          },
+          create: function(value) {
+            return {
+              content: value
+            };
+          }, 
+          onChange: function(values) {
+                topics = values;
+          }
+    });
 });
