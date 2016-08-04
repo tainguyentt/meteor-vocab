@@ -4,27 +4,22 @@ Meteor.publish('questions', function() {
 });
 
 // Client subscribes to this channel will get only one question according to the id param
-Meteor.publishComposite('question', function(id) {
+Meteor.publishComposite('answers', function(questionId, answersLimit) {
     return {
         find: function() {
-            return Questions.find(id);
+            return Answers.find({ questionId: questionId }, {limit: answersLimit, sort: {voteCount: -1}});
         },
         children: [{
-            find: function(question) {
-                return Answers.find({ questionId: question._id });
-            },
-            children: [{
-                find: function(answer) {
-                    return Meteor.users.find({ _id: answer.createdBy }, { limit: 1, fields: { profile: 1 } });
-                }
-            }]
-        }]
-    }
+            find: function(answer) {
+                return Meteor.users.find({ _id: answer.createdBy }, { limit: 1, fields: { profile: 1 } });
+            }
+        }],
+    };
 });
 
 // Client subscribes to this channel will get a list of all answers
-Meteor.publish('answers', function(questionId) {
-    return Answers.find({ questionId: questionId });
+Meteor.publish('question', function(questionId) {
+    return Questions.find(questionId);
 });
 
 // Client subscribes to this channel will get a list of all of my answers

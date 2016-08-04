@@ -1,6 +1,6 @@
 Template.displayQuestion.helpers({
     allAnswers: function() {
-        return Answers.find({ questionId: this._id });
+        return Answers.find({ questionId: this._id }, {limit: Template.instance().loaded.get(), sort: {voteCount: -1}});
     },
     myAnswers: function() {
         return Answers.find({ questionId: this._id, createdBy: Meteor.userId() });
@@ -8,51 +8,31 @@ Template.displayQuestion.helpers({
     noAnswersFound: function() {
         return Answers.find({ questionId: this._id }).count() === 0;
     },
-    answeredByCurrentUser: function() {
-        return Answers.find({ questionId: this._id, createdBy: Meteor.userId() }).count() > 0;
-    },
-    isAnsweringMode: function() {
-        return Session.get('answering-mode');
-    },
-    'createdQuestion': function() {
-        return Session.get('questionFindByIdSession');
-    },
-    'answer': function() {
-        return AnswerList.find({}, { sort: { content: 1 } });
-    },
-    'isEditQuestion': function() {
-        return Session.equals('editQuestion', 'true');
-    },
-    'options': function() {
-        var options = [{
-            value: TAPi18n.__('sentence'),
-            label: TAPi18n.__('sentence')
-        }, {
-            value: TAPi18n.__('word'),
-            label: TAPi18n.__('word')
-        }, {
-            value: TAPi18n.__('paragraph'),
-            label: TAPi18n.__('paragraph')
-        }]
-        return options;
+    hasMoreAnswers: function() {
+        return Answers.find({ questionId: this._id }, {limit: Template.instance().loaded.get()}).count() >= Template.instance().limit.get();
     }
 });
 
 Template.displayQuestion.events({
-    'click .addAnswer': function() {
-        //TO DO router to add answer page
-        console.log("add answer clicked");
+    'click button#show-more': function(event, instance) {
+        event.preventDefault();
+        let increment = 5;
+        let newLimit = instance.limit.get() + increment;
+        instance.limit.set(newLimit);
     },
-    'click .addMore': function() {
-        Router.go("addQuestion");
-    },
-    'click .finished': function() {
-        Router.go("homePage");
-    },
-    'click .js-check-answer': function() {
-        Session.set('answering-mode', false);
-    },
-    'click .edit-question': function() {
-        Session.set('editQuestion', 'true');
-    }
+});
+
+Template.displayQuestion.onCreated(function() {
+    let instance = this;
+    let questionId = this.data._id;
+    instance.loaded = new ReactiveVar(0);
+    instance.limit = new ReactiveVar(5);
+
+    instance.autorun(function() {
+        let limit = instance.limit.get();
+        let subscription = instance.subscribe('answers', questionId, limit);
+        if(subscription.ready()) {
+            instance.loaded.set(limit);
+        }
+    });
 });

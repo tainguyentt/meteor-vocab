@@ -8,7 +8,9 @@
         </li>
         <li class="list-group-item">
             {{#if noAnswersFound}}
-                Chưa có câu trả lời nào.
+                {{#if Template.subscriptionsReady}}
+                    Chưa có câu trả lời nào.
+                {{/if}}
             {{else}}
                 <ul class="nav nav-tabs">
                     <li class="active pull-right"><a data-toggle="tab" href="#all-answers">Tất cả câu trả lời</a></li>
@@ -19,6 +21,17 @@
                         {{#each allAnswers}}
                             {{> answerItem}}
                         {{/each}}
+                        {{#if Template.subscriptionsReady}}
+                            {{#if hasMoreAnswers}}
+                                <div class="text-center">
+                                    <button id="show-more" class="btn btn-primary btn-xs">Show more</button>
+                                </div>
+                            {{/if}}
+                        {{else}}
+                            <div class="text-center">
+                                {{> spinner}}
+                            </div>
+                        {{/if}}
                     </div>
                     <div id="my-answers" class="tab-pane fade">
                         {{#each myAnswers}}

@@ -9,9 +9,6 @@ Template.answerItem.helpers({
     createdTime: function() {
         return this.createdAt.toDateString();
     },
-    voteCount: function() {
-        return this.voters ? this.voters.length : 0;
-    },
     voted: function() {
         return this.voters && this.voters.includes(Meteor.userId());
     },
