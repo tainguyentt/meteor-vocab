@@ -1,17 +1,17 @@
 <template name="editQuestion">
-    <h2>{{_ "editQuestionHeader"}}</h2>
+    <h2>{{_ "question.edit.title"}}</h2>
 
     <form class="add-question">
         <span name="messages"></span>
         <fieldset class="form-group">
-            <label for="questionContent">{{_ "content"}}</label>
+            <label for="questionContent">{{_ "question.content"}}</label>
             <textarea class="form-control" id="questionContent" name="questionContent" rows="3" value="{{content}}"></textarea>
         </fieldset>
         <fieldset class="form-group">
-            <label for="questionTopic">{{_ "topic"}}</label>
+            <label for="questionTopic">{{_ "question.topic"}}</label>
             <input type="text" class="form-control" id="questionTopic" name="questionTopic" value="{{topic}}">
         </fieldset>
         <br />
-        <button class="btn btn-primary" type="submit">{{_ 'update'}}</button>
+        <button class="btn btn-primary" type="submit">{{_ 'common.save'}}</button>
     </form>
 </template>

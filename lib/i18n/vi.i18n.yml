@@ -1,32 +1,48 @@
-appName: Tập Viết
-profile: Trang cá nhân
-signIn: Đăng nhập
-signOut: Thoát
-listQuestionAnswerByMe: Danh sách câu trả lời
-listMyQuestion: Các câu hỏi của tôi
+common:
+  save: Lưu
+  cancel: Hủy
+  edit: Chỉnh sửa
+  not: Chưa
+  loadMore: Hiển thị thêm
 
-# add-question
-addQuestion: Tạo câu hỏi
-addQuestionHeader: Điền câu hỏi tại đây
-type: Loại
-content: Câu hỏi
-topic: Chủ đề
-create: Tạo
-edit: Sửa
-sentence: Câu văn
-word: Cụm từ
-paragraph: Đoạn văn
-# edit-question
-editQuestionHeader: Sửa câu hỏi
-# question-list
-questionList: Danh sách câu hỏi
-# displayed-question
-displayedQuestion: Câu hỏi
-answer: Trả lời
-addYourAnswer: thêm câu trả lời
-addMore: Tạo tiếp
-finished: Kết Thúc
-save: Lưu
-vote: Bình Chọn
-votes: votes
+header:
+  appName: Tập Viết
+  createQuestion: Thêm câu hỏi
+  allQuestions: Danh sách câu hỏi
+  profile: Trang cá nhân
+  signIn: Đăng nhập
+  signOut: Thoát
+  myAnsweredQuestions: Danh sách câu trả lời
+  myQuestions: Các câu hỏi của tôi
+
+profile:
+  name: Họ tên
+  email: Email
+  emailVerification: Xác nhận Email
+  password: Mật khẩu
+  displayLanguage: Ngôn ngữ hiển thị
+  
+
+question:
+  content: Nội dung
+  topic: Chủ đề
+  vote: Bầu chọn
+  create:
+    title: Câu hoặc từ cần dịch
+    submit: Tạo
+  edit:
+    title: Sửa câu hoặc từ cần dịch
+  solve:
+    label: Trả lời
+    title: Dịch sang tiếng Anh
+
+answer:
+  label: Điền câu trả lời
+  check: Xem đáp án
+  submit: Gửi
+  myAnswers: Câu trả lời của tôi
+  allAnswers: Tất cả câu trả lời
+  noResult: Chưa có câu trả lời nào
+
+
 

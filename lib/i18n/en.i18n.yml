@@ -1,11 +1,43 @@
-# appName: How to say
-# profile: Profile
-# register: Sign in / Sign up
-# signOut: Sign out
-# addQuestion: Add question
+common:
+  save: Lưu
+  cancel: Hủy
+  edit: Chỉnh sửa
+  not: Chưa
+
+header:
+  appName: Tập Viết
+  createQuestion: Thêm câu hỏi
+  allQuestions: Danh sách câu hỏi
+  profile: Trang cá nhân
+  signIn: Đăng nhập
+  signOut: Thoát
+  myAnsweredQuestions: Danh sách câu trả lời
+  myQuestions: Các câu hỏi của tôi
+
+profile:
+  name: Họ tên
+  email: Email
+  emailVerification: Xác nhận Email
+  password: Mật khẩu
+  displayLanguage: Ngôn ngữ hiển thị
+  
+
+question:
+  content: Nội dung
+  topic: Chủ đề
+  vote: Bầu chọn
+  create:
+    title: Câu hoặc từ cần dịch
+    submit: Tạo
+  edit:
+    title: Sửa câu hoặc từ cần dịch
+  solve:
+    label: Trả lời
+    title: Dịch sang tiếng Anh
+
+answer:
+  label: Điền câu trả lời
+  check: Xem đáp án
+  submit: Gửi
 
 
-sentence: Câu văn 111111
-word: Cụm từ111111111
-paragraph: Đoạn văn11
-test: test in english

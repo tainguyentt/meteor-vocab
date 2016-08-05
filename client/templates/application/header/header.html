@@ -8,13 +8,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{pathFor 'homePage'}}">{{_ "appName"}}</a>
+                <a class="navbar-brand" href="{{pathFor 'homePage'}}">{{_ "header.appName"}}</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="{{isActiveRoute 'addQuestion'}} add-question-header"><a href="{{pathFor 'addQuestion'}}">{{_ "addQuestion"}}</a></li>
-                    <li class="{{isActiveRoute 'questionList'}}"><a href="{{pathFor 'questionList'}}">{{_ "questionList"}}</a></li>
+                    <li class="{{isActiveRoute 'addQuestion'}} add-question-header"><a href="{{pathFor 'addQuestion'}}">{{_ "header.createQuestion"}}</a></li>
+                    <li class="{{isActiveRoute 'questionList'}}"><a href="{{pathFor 'questionList'}}">{{_ "header.allQuestions"}}</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     {{#if currentUser}}
@@ -23,15 +23,15 @@
                                 <span class="badge"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> {{userPoints}}</span> {{displayName}} <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{pathFor 'userProfile'}}">{{_ "profile"}}</a></li>
-                                <li><a href="{{pathFor 'listQuestionAnswerByMe'}}">{{_ "listQuestionAnswerByMe"}}</a></li>
-                                <li><a href="{{pathFor 'listMyQuestion'}}">{{_ "listMyQuestion"}}</a></li>
+                                <li><a href="{{pathFor 'userProfile'}}">{{_ "header.profile"}}</a></li>
+                                <li><a href="{{pathFor 'listQuestionAnswerByMe'}}">{{_ "header.myAnsweredQuestions"}}</a></li>
+                                <li><a href="{{pathFor 'listMyQuestion'}}">{{_ "header.myQuestions"}}</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#" id="logout">{{_ "signOut"}}</a></li>
+                                <li><a href="#" id="logout">{{_ "header.signOut"}}</a></li>
                             </ul>
                         </li>
                     {{else}}
-                        <li><a href="{{pathFor 'signIn'}}">{{_ "signIn"}}</a></li>
+                        <li><a href="{{pathFor 'signIn'}}">{{_ "header.signIn"}}</a></li>
                     {{/if}}
                 </ul>
             </div>
