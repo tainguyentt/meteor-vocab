@@ -29,6 +29,7 @@ Template.voteQuestion.events({
         } else {
             Meteor.call('voteQuestion', questionId, userId, function(error) {
                 if (error) {
+                    console.log(error.reason);
                     throwError(error.reason);
                 } else {
                     updateUserPoints(authorId, 2);

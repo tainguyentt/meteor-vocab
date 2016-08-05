@@ -11,7 +11,7 @@ Meteor.publishComposite('answers', function(questionId, answersLimit) {
         },
         children: [{
             find: function(answer) {
-                return Meteor.users.find({ _id: answer.createdBy }, { limit: 1, fields: { profile: 1 } });
+                return Meteor.users.find({ _id: answer.userId }, { limit: 1, fields: { profile: 1 } });
             }
         }],
     };
