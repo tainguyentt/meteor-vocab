@@ -4,17 +4,17 @@
         <li class="list-group-item">
             <span class="badge">{{topic}}</span>
             <p class="pull-left">{{> voteQuestion}}</p>
-            <a href="{{pathFor 'answerQuestion' _id}}"><i class="material-icons">question_answer</i> Trả lời</a>
+            <a href="{{pathFor 'answerQuestion' _id}}"><i class="material-icons">question_answer</i> {{_ "question.solve.label"}}</a>
         </li>
         <li class="list-group-item">
             {{#if noAnswersFound}}
                 {{#if Template.subscriptionsReady}}
-                    Chưa có câu trả lời nào.
+                    {{_ "answer.noResult"}}
                 {{/if}}
             {{else}}
                 <ul class="nav nav-tabs">
-                    <li class="active pull-right"><a data-toggle="tab" href="#all-answers">Tất cả câu trả lời</a></li>
-                    <li class="pull-right"><a data-toggle="tab" href="#my-answers">Câu trả lời của tôi</a></li>
+                    <li class="active pull-right"><a data-toggle="tab" href="#all-answers">{{_ "answer.allAnswers"}}</a></li>
+                    <li class="pull-right"><a data-toggle="tab" href="#my-answers">{{_ "answer.myAnswers"}}</a></li>
                 </ul>
                 <div class="tab-content answers-container">
                     <div id="all-answers" class="tab-pane fade in active">
@@ -24,7 +24,7 @@
                         {{#if Template.subscriptionsReady}}
                             {{#if hasMoreAnswers}}
                                 <div class="text-center">
-                                    <button id="show-more" class="btn btn-primary btn-xs">Show more</button>
+                                    <button id="show-more" class="btn btn-primary btn-xs">{{_ "common.loadMore"}}</button>
                                 </div>
                             {{/if}}
                         {{else}}
