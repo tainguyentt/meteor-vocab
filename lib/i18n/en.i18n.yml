@@ -53,3 +53,6 @@ answer:
   label: Điền câu trả lời
   check: Xem đáp án
   submit: Gửi
+  noResult: Chưa có câu trả lời
+  myAnswers: Câu trả lời của tôi
+  allAnswers: Tất cả các câu trả lời
