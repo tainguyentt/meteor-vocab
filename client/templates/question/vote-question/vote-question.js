@@ -6,6 +6,9 @@ Template.voteQuestion.helpers({
     },
     isVoted: function() {
         return this.voters;
+    },
+    voted: function() {
+        return this.voters && this.voters.includes(Meteor.userId());
     }
 });
 
@@ -26,6 +29,7 @@ Template.voteQuestion.events({
         } else {
             Meteor.call('voteQuestion', questionId, userId, function(error) {
                 if (error) {
+                    console.log(error.reason);
                     throwError(error.reason);
                 } else {
                     updateUserPoints(authorId, 2);

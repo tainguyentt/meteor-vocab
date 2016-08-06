@@ -1,6 +1,6 @@
 Template.displayQuestion.helpers({
     allAnswers: function() {
-        return Answers.find({ questionId: this._id });
+        return Answers.find({ questionId: this._id }, {limit: Template.instance().loaded.get(), sort: {voteCount: -1}});
     },
     myAnswers: function() {
         return Answers.find({ questionId: this._id, createdBy: Meteor.userId() });
@@ -30,16 +30,18 @@ Template.displayQuestion.helpers({
            listTopic.push(topic.content);
         }
         return listTopic;
+    },
+    hasMoreAnswers: function() {
+        return Answers.find({ questionId: this._id }, {limit: Template.instance().loaded.get()}).count() >= Template.instance().limit.get();
     }
 });
 
 Template.displayQuestion.events({
-    'click .addAnswer': function() {
-        //TO DO router to add answer page
-        console.log("add answer clicked");
-    },
-    'click .addMore': function() {
-        Router.go("addQuestion");
+    'click button#show-more': function(event, instance) {
+        event.preventDefault();
+        let increment = 5;
+        let newLimit = instance.limit.get() + increment;
+        instance.limit.set(newLimit);
     },
     'click .finished': function() {
         Router.go("homePage");
@@ -50,4 +52,19 @@ Template.displayQuestion.events({
     'click .edit-question': function() {
         Session.set('editQuestion', 'true');
     }
+});
+
+Template.displayQuestion.onCreated(function() {
+    let instance = this;
+    let questionId = this.data._id;
+    instance.loaded = new ReactiveVar(0);
+    instance.limit = new ReactiveVar(5);
+
+    instance.autorun(function() {
+        let limit = instance.limit.get();
+        let subscription = instance.subscribe('answers', questionId, limit);
+        if(subscription.ready()) {
+            instance.loaded.set(limit);
+        }
+    });
 });

@@ -2,5 +2,12 @@
     {{#if isVoted}}
         {{voteCount}}
     {{/if}}
-    <a class="vote-question" href="#" disabled="true" id="vote-question" title="Thích"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Thích</a>
+    <a class="vote-question" href="#" disabled="true" id="vote-question">
+        {{#if voted}}
+          <i class="material-icons">favorite</i>
+        {{else}}
+          <i class="material-icons">favorite_border</i>
+        {{/if}}
+        {{_ "question.vote"}}
+    </a>
 </template>

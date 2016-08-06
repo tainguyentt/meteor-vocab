@@ -5,7 +5,7 @@
             <div class="section">
                 <div class="row">
                     <div class="col-xs-10 col-xs-offset-1">
-                        {{> errors}} {{> yield}}
+                        {{> yield}}
                     </div>
                 </div>
             </div>
@@ -13,10 +13,14 @@
     </div>
     {{> footer}}
 </template>
-
 <template name="layout2">
     {{> header}}
     <div class="container">
-        {{> errors}} {{> yield}}
+        {{> yield}}
+    </div>
+</template>
+<template name="nonHeaderLayout">
+    <div class="container">
+        {{> yield}}
     </div>
 </template>

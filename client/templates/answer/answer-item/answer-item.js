@@ -7,13 +7,15 @@ Template.answerItem.onRendered(function() {
 
 Template.answerItem.helpers({
     createdTime: function() {
-        return this.createdAt.toDateString();
+        return this.created.toDateString();
     },
-    voteCount: function() {
-        return this.voters ? this.voters.length : 0;
+    voted: function() {
+        return this.voters && this.voters.includes(Meteor.userId());
     },
-    isVoted: function() {
-        return this.voters && this.voters.length > 0;
+    username: function() {
+        let user = Meteor.users.findOne(this.userId);
+        let name = user.profile.name;
+        return name;
     }
 });
 
@@ -22,7 +24,7 @@ Template.answerItem.events({
         e.preventDefault();
         var userId = Meteor.userId();
         var answerId = this._id;
-        var askerId = this.createdBy;
+        var askerId = this.userId;
         if (this.voters && this.voters.includes(userId)) {
             Meteor.call('unvoteAnswer', answerId, userId, function(error) {
                 if (error) {

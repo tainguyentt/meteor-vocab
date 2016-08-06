@@ -1,4 +1,5 @@
 /* Question */
+
 .addAnswer {
     cursor: pointer;
     color: blue;
@@ -16,7 +17,7 @@
 }
 
 .question-content {
-  padding: 20px 0;
+    padding: 20px 0;
 }
 
 
@@ -39,31 +40,36 @@ textarea {
     font-size: 14;
 }
 
-.question-list{
-  color: blue;
-  cursor: pointer;
+.question-list {
+    color: blue;
+    cursor: pointer;
 }
-.content-answer{
-  margin-top: 5px;
+
+.content-answer {
+    margin-top: 5px;
 }
 
 .skip-answer {
-  margin-right: 10px;
+    margin-right: 10px;
 }
 
 .answers-container {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
-.answer-item{
-  border: 1px solid #ddd;
-  margin: 10px 0;
-  padding: 5px 0;
-  background-color: #f5f5f5;
+.answer-item {
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    padding: 5px 0;
+    background-color: #f5f5f5;
+}
+
+.material-icons.user-avatar {
+    font-size: 48px;
 }
 
 .vote-question {
-  margin-right: 10px;
+    margin-right: 10px;
 }
 
 
@@ -92,10 +98,18 @@ textarea {
 }
 
 @keyframes fadeOut {
-  0% {opacity: 0;}
-  10% {opacity: 1;}
-  90% {opacity: 1;}
-  100% {opacity: 0;}
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 .selectize-control.multi .selectize-input > div {
@@ -104,8 +118,11 @@ textarea {
     padding: 2px 6px;
     background: #9ce4e8 !important;
     border: none;
-  }
+}
+
+
 /* Material kit */
+
 .card .header {
-  margin-top: -20px;
+    margin-top: -20px;
 }
