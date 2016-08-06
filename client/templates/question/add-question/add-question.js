@@ -13,7 +13,8 @@ Template.addQuestion.events({
             content: event.target.questionContent.value,
             topics: questionTopics
         }
-        Meteor.call('insertQuestion', question, function(error, result) {
+        console.log("create question: ", question);
+       /* Meteor.call('insertQuestion', question, function(error, result) {
             if (error) {
                 throwError(error.reason);
             } else {
@@ -21,36 +22,49 @@ Template.addQuestion.events({
                 Session.set('addingQuestionMode', true);
                 Router.go('displayQuestion', { _id: result._id });
             }
-        });
+        });*/
         
     }
 });
+
+
+
 Template.addQuestion.onRendered(function(){
-    var select = $('#input-tags').selectize({
-        delimiter: ',',
-        persist: false,
-        create: function(input) {
-            return {
-                value: input,
-                text: input
-            }
-        }
+
+var allTopic = Topics.find().fetch();
+
+const getLinkTitle = (id) => {
+  let title;
+  if (id) {
+    const selectedLink = _.find(allTopic, (topic) => {
+      return topic.id === parseInt(id);
     });
-    var allTopic = Topics.find().fetch();
-    var listTopic = [];
+    if (selectedLink) {
+      title = selectedLink.content;
+    }
+  }
+  return title;
+};
+
+
+    /*var listTopic = [];
     for(i in allTopic){
         listTopic.push({
             content: allTopic[i].content,
             id: allTopic[i]._id
         })
+    }*/
+    //console.log('list topic: ', listTopic);
+    function addTopic(value){
+         
     }
 
     $('#select-links').selectize({
         plugins: ['remove_button'],
         maxItems: null,
-        valueField: 'content',
+        valueField: '_id',
         searchField: 'content',
-        options: listTopic,
+        options: allTopic,
         render: {
             option: function(data, escape) {
                 return  '<div class="option">' +
@@ -60,14 +74,38 @@ Template.addQuestion.onRendered(function(){
             item: function(data, escape) {
               return '<div class="item"><a href="' + escape(data.url) + '">' + escape(data.content) + '</a></div>';
             }
-          },
-          create: function(value) {
-            return {
+        },
+        create: function(value) {
+            var topic = {
+                content: value
+            }
+            Meteor.call('insertTopic', topic, function(error, result) {
+                if (error) {
+                    throwError(error.reason);
+                }else{
+                    return {
+                      _id: result,
+                      content: value
+                    };
+                }
+            });
+            /*return {
+                _id: null,
               content: value
-            };
-          }, 
-          onChange: function(values) {
-                topics = values;
-          }
+            };*/
+        }, 
+        onChange: function(values) {
+            //topics = values;
+             if (values) {
+            values.forEach((value) => {
+              // Can save to your collection/database here; for now 
+              // just logging in the format you requested.
+              console.log({
+                id: value,
+                text: getLinkTitle(value)
+              });
+            });
+        }
+        }            
     });
 });
