@@ -2,19 +2,12 @@ var topics = [];
 
 Template.addQuestion.events({
     'submit form': function(event) {
-        var questionTopics = [];
         event.preventDefault();
-        for(var i in topics){
-            questionTopics.push({
-                content: topics[i]
-            });
-        }
         var question = {
             content: event.target.questionContent.value,
-            topics: questionTopics
+            topics: topics
         }
-        console.log("create question: ", question);
-       /* Meteor.call('insertQuestion', question, function(error, result) {
+        Meteor.call('insertQuestion', question, function(error, result) {
             if (error) {
                 throwError(error.reason);
             } else {
@@ -22,7 +15,7 @@ Template.addQuestion.events({
                 Session.set('addingQuestionMode', true);
                 Router.go('displayQuestion', { _id: result._id });
             }
-        });*/
+        });
         
     }
 });
@@ -31,33 +24,23 @@ Template.addQuestion.events({
 
 Template.addQuestion.onRendered(function(){
 
-var allTopic = Topics.find().fetch();
+    var allTopic = Topics.find().fetch();
+    var count = 0;
 
-const getLinkTitle = (id) => {
-  let title;
-  if (id) {
-    const selectedLink = _.find(allTopic, (topic) => {
-      return topic.id === parseInt(id);
-    });
-    if (selectedLink) {
-      title = selectedLink.content;
-    }
-  }
-  return title;
-};
+    var getLinkTitle = (_id) => {
+        let title;
+        if (_id) {
+            var selectedLink = _.find(allTopic, (topic) => {
+              return topic._id === _id || topic._id === parseInt(_id);
+            });
+            if (selectedLink) {
+              title = selectedLink.content;
+            }
+        }
+        return title;
+    };
 
-
-    /*var listTopic = [];
-    for(i in allTopic){
-        listTopic.push({
-            content: allTopic[i].content,
-            id: allTopic[i]._id
-        })
-    }*/
-    //console.log('list topic: ', listTopic);
-    function addTopic(value){
-         
-    }
+    console.log("all topic: ", allTopic)
 
     $('#select-links').selectize({
         plugins: ['remove_button'],
@@ -77,35 +60,23 @@ const getLinkTitle = (id) => {
         },
         create: function(value) {
             var topic = {
+                _id: count++,
                 content: value
             }
-            Meteor.call('insertTopic', topic, function(error, result) {
-                if (error) {
-                    throwError(error.reason);
-                }else{
-                    return {
-                      _id: result,
-                      content: value
-                    };
-                }
-            });
-            /*return {
-                _id: null,
-              content: value
-            };*/
+            allTopic.push(topic);
+            return topic;
         }, 
         onChange: function(values) {
-            //topics = values;
-             if (values) {
-            values.forEach((value) => {
-              // Can save to your collection/database here; for now 
-              // just logging in the format you requested.
-              console.log({
-                id: value,
-                text: getLinkTitle(value)
-              });
-            });
-        }
+            var selectedTopic = [];
+            if (values) {
+                values.forEach((value) => {
+                    selectedTopic.push({
+                        id: value,
+                        content: getLinkTitle(value)
+                    });
+                });
+            }
+            topics = selectedTopic;
         }            
     });
 });
