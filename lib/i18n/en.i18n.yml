@@ -39,7 +39,7 @@ account:
 profile:
   emailVerification: Xác nhận Email
   displayLanguage: Ngôn ngữ hiển thị
-  
+
 question:
   content: Nội dung
   topic: Chủ đề

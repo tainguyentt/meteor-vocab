@@ -8,6 +8,29 @@ Template.displayQuestion.helpers({
     noAnswersFound: function() {
         return Answers.find({ questionId: this._id }).count() === 0;
     },
+    answeredByCurrentUser: function() {
+        return Answers.find({ questionId: this._id, createdBy: Meteor.userId() }).count() > 0;
+    },
+    isAnsweringMode: function() {
+        return Session.get('answering-mode');
+    },
+    'createdQuestion': function() {
+        return Session.get('questionFindByIdSession');
+    },
+    'answer': function() {
+        return AnswerList.find({}, { sort: { content: 1 } });
+    },
+    'isEditQuestion': function() {
+        return Session.equals('editQuestion', 'true');
+    },
+    'topic': function(topics){
+        var listTopic = [];
+        for(var i in topics){
+           var topic = Topics.findOne(topics[i]);
+           listTopic.push(topic.content);
+        }
+        return listTopic;
+    },
     hasMoreAnswers: function() {
         return Answers.find({ questionId: this._id }, {limit: Template.instance().loaded.get()}).count() >= Template.instance().limit.get();
     }
@@ -20,6 +43,15 @@ Template.displayQuestion.events({
         let newLimit = instance.limit.get() + increment;
         instance.limit.set(newLimit);
     },
+    'click .finished': function() {
+        Router.go("homePage");
+    },
+    'click .js-check-answer': function() {
+        Session.set('answering-mode', false);
+    },
+    'click .edit-question': function() {
+        Session.set('editQuestion', 'true');
+    }
 });
 
 Template.displayQuestion.onCreated(function() {

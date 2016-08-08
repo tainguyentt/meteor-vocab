@@ -2,7 +2,8 @@
     {{> questionItem}}
     <ul class="list-group">
         <li class="list-group-item">
-            <span class="badge">{{topic}}</span>
+
+            <span class="badge">{{topic topics}}</span>
             <p class="pull-left">{{> voteQuestion}}</p>
             <a href="{{pathFor 'answerQuestion' _id}}"><i class="material-icons">question_answer</i> {{_ "question.solve.label"}}</a>
         </li>
