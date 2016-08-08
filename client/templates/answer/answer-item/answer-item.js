@@ -6,8 +6,8 @@ Template.answerItem.onRendered(function() {
 });
 
 Template.answerItem.helpers({
-    createdTime: function() {
-        return this.created.toDateString();
+    createdAt: function() {
+        return moment(this.created).lang('vi').fromNow();
     },
     voted: function() {
         return this.voters && this.voters.includes(Meteor.userId());

@@ -31,3 +31,5 @@ reywood:publish-composite
 reactive-var
 aldeed:collection2
 check
+momentjs:moment
+rzymek:moment-locale-vi

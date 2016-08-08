@@ -64,6 +64,19 @@ textarea {
     background-color: #f5f5f5;
 }
 
+.answer-username {
+    font-weight: bold;
+}
+
+.answer-time {
+    color: #777;
+    font-size: 12px;
+}
+
+.answer-user {
+    font-weight: bold;
+}
+
 .material-icons.user-avatar {
     font-size: 48px;
 }

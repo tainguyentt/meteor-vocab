@@ -3,6 +3,10 @@ common:
   cancel: Hủy
   edit: Chỉnh sửa
   not: Chưa
+  loadMore: Hiện thêm
+
+time:
+  at: lúc
 
 header:
   appName: Tập Viết

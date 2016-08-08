@@ -1,10 +1,10 @@
 <template name="answerItem">
     <div class="row answer-item">
         <div class="col-xs-1 answer-author text-center">
-            <i class="material-icons user-avatar">account_circle</i> 
-            <div>{{username}}</div>
+            <i class="material-icons user-avatar">account_circle</i>
         </div>
         <div class="col-xs-10 content-answer">
+            <div><a href="#" class="answer-username">{{username}}</a> <span class="answer-time">{{createdAt}}</span></div>
             <p>{{content}}</p>
         </div>
         <div class="col-xs-1 text-center">
