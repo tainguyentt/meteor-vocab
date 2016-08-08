@@ -7,7 +7,7 @@ Template.answerItem.onRendered(function() {
 
 Template.answerItem.helpers({
     createdAt: function() {
-        return moment(this.created).lang('vi').fromNow();
+        return moment(this.created).locale('vi').fromNow();
     },
     voted: function() {
         return this.voters && this.voters.includes(Meteor.userId());
