@@ -50,6 +50,7 @@ iron:url@1.0.11
 jeremy:selectize@0.12.1_5
 jquery@1.11.9
 launch-screen@1.0.12
+less@2.6.4
 livedata@1.0.18
 localstorage@1.0.11
 logging@1.0.14
@@ -66,6 +67,7 @@ modules-runtime@0.6.5
 momentjs:moment@2.14.4
 mongo@1.1.9_1
 mongo-id@1.0.5
+multiply:iron-router-progress@1.0.2
 npm-bcrypt@0.8.6_2
 npm-mongo@1.4.45
 observe-sequence@1.0.12
