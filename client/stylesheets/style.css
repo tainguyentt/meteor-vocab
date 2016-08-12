@@ -69,6 +69,7 @@ textarea {
 }
 
 .answer-time {
+    margin-left: 10px;
     color: #777;
     font-size: 12px;
 }
@@ -133,6 +134,10 @@ textarea {
     border: none;
 }
 
+#iron-router-progress {
+    background-color : #29d;
+    box-shadow       : 0 0 5px #b0d7ed;
+}
 
 /* Material kit */
 
