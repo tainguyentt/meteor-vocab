@@ -45,13 +45,15 @@ question:
   topic: Chủ đề
   vote: Bầu chọn
   create:
-    title: Câu hoặc từ cần dịch
-    submit: Tạo
+    title: Tạo câu hỏi mới
+    label: Câu hoặc từ cần dịch
+    topic: Chủ đề
+    action: Tạo
   edit:
     title: Sửa câu hoặc từ cần dịch
   solve:
-    label: Trả lời
     title: Dịch sang tiếng Anh
+    label: Trả lời
 
 answer:
   label: Điền câu trả lời

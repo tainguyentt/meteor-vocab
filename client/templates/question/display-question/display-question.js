@@ -23,10 +23,10 @@ Template.displayQuestion.helpers({
     'isEditQuestion': function() {
         return Session.equals('editQuestion', 'true');
     },
-    'topic': function(topics){
+    'topic': function(){
         var listTopic = [];
-        for(var i in topics){
-           var topic = Topics.findOne(topics[i]);
+        for(var i in this.topics){
+           var topic = Topics.findOne(this.topics[i]);
            listTopic.push(topic.content);
         }
         return listTopic;
