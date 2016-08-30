@@ -1,0 +1,14 @@
+<template name="study">
+	{{#with studyingQuestion}}
+		{{> questionItem}}
+		{{#if showAnswer}}
+			{{> allAnswers}}
+			<button id="next-question" class="btn btn-success pull-right">
+				{{_ "study.nextQuestion"}}
+				<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+			</button>
+		{{else}}
+			{{> addAnswer studyMode=true question=studyingQuestion}}
+		{{/if}}
+	{{/with}}
+</template>
