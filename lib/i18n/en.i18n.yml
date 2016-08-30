@@ -17,6 +17,7 @@ header:
   signOut: Thoát
   myAnsweredQuestions: Danh sách câu trả lời
   myQuestions: Các câu hỏi của tôi
+  study: Bắt đầu học
 
 account:
   name: Họ tên
@@ -62,3 +63,6 @@ answer:
   noResult: Chưa có câu trả lời
   myAnswers: Câu trả lời của tôi
   allAnswers: Tất cả các câu trả lời
+
+study:
+  nextQuestion: Câu hỏi tiếp theo

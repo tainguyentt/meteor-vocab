@@ -1,12 +1,31 @@
 // Client subscribes to this channel will get a list of all questions
-Meteor.publish('questions', function() {
+Meteor.publish('questions', function () {
 	return Questions.find();
 });
 
-// Client subscribes to this channel will get only one question according to the id param
-Meteor.publishComposite('answers', function(questionId, answersLimit) {
+Meteor.publish('studyQuestions', function () {
+	return Questions.find({}, {
+		limit: 20,
+		fields: {
+			id: 1
+		}
+	})
+});
+
+Meteor.publish('userAnswers', function (questionId, userId) {
+	return Answers.find({
+		questionId: questionId,
+		userId: userId
+	}, {
+		sort: {
+			created: -1
+		}
+	})
+});
+
+Meteor.publishComposite('answers', function (questionId, answersLimit) {
 	return {
-		find: function() {
+		find: function () {
 			return Answers.find({
 				questionId: questionId
 			}, {
@@ -17,7 +36,7 @@ Meteor.publishComposite('answers', function(questionId, answersLimit) {
 			});
 		},
 		children: [{
-			find: function(answer) {
+			find: function (answer) {
 				return Meteor.users.find({
 					_id: answer.userId
 				}, {
@@ -31,13 +50,13 @@ Meteor.publishComposite('answers', function(questionId, answersLimit) {
 	};
 });
 
-Meteor.publishComposite('question', function(questionId) {
+Meteor.publishComposite('question', function (questionId) {
 	return {
-		find: function() {
+		find: function () {
 			return Questions.find(questionId);
 		},
 		children: [{
-			find: function(question) {
+			find: function (question) {
 				return Topics.find({
 					_id: {
 						$in: question.topics
@@ -45,7 +64,7 @@ Meteor.publishComposite('question', function(questionId) {
 				});
 			},
 		}, {
-			find: function(question) {
+			find: function (question) {
 				return Meteor.users.find({
 					_id: question.userId
 				}, {
@@ -60,11 +79,11 @@ Meteor.publishComposite('question', function(questionId) {
 });
 
 // Client subscribes to this channel will get a list of all of my answers
-Meteor.publish('listQuestionAnswerByMe', function(userId) {
+Meteor.publish('listQuestionAnswerByMe', function (userId) {
 	var userAnswers = Answers.find({
 		createdBy: userId
 	});
-	var questiondIds = userAnswers.map(function(answer) {
+	var questiondIds = userAnswers.map(function (answer) {
 		return answer.questionId
 	});
 	var questions = Questions.find({
@@ -76,13 +95,13 @@ Meteor.publish('listQuestionAnswerByMe', function(userId) {
 });
 
 // Client subscribes to this channel will get a list of all of my question
-Meteor.publish('listMyQuestion', function(userId) {
+Meteor.publish('listMyQuestion', function (userId) {
 	return Questions.find({
 		userId: userId
 	});
 })
 
 // Client subscribes to this channel will get a list of all topics
-Meteor.publish('topics', function() {
+Meteor.publish('topics', function () {
 	return Topics.find();
 });

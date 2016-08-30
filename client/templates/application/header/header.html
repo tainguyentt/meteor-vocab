@@ -15,6 +15,7 @@
                 <ul class="nav navbar-nav">
                     <li class="{{isActiveRoute 'addQuestion'}} add-question-header"><a href="{{pathFor 'addQuestion'}}">{{_ "header.createQuestion"}}</a></li>
                     <li class="{{isActiveRoute 'questionList'}}"><a href="{{pathFor 'questionList'}}">{{_ "header.allQuestions"}}</a></li>
+										<li class="{{isActiveRoute 'study'}}"><a href="{{pathFor 'study'}}">{{_ "header.study"}}</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     {{#if currentUser}}

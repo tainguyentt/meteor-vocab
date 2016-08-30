@@ -1,9 +1,32 @@
 <template name="questionItem">
-    <h3 class="title">{{_ "question.solve.title"}}
-    </h3>
-    <ul class="list-group">
-        <li class="list-group-item">
-            <h4 class="text-center question-content">{{content}}</h4>
-        </li>
-    </ul>
+	<div class="row">
+		<div class="col-xs-10">
+			<h3 class="title">{{_ "question.solve.title"}}
+			</h3>
+		</div>
+		<div class="col-xs-2 question-vote text-right">
+			{{> voteQuestion}}
+		</div>
+	</div>
+	<ul class="list-group question-body">
+		<li class="list-group-item">
+			<h4 class="text-center question-content">{{content}}</h4>
+		</li>
+	</ul>
+	<div class="question-topics pull-left">
+		{{#each topics}}
+			<span class="badge">{{content}}</span>
+		{{/each}}
+	</div>
+	<div class="question-info pull-right">
+		<span class="question-user">
+			<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+			<a class="">{{username}}</a>
+		</span>
+		<span class="question-time">
+			<span class="icon fa fa-clock-o"></span>
+			{{createdAt}}
+		</span>
+	</div>
+	<div class="clearfix"></div>
 </template>
