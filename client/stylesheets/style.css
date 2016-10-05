@@ -1,5 +1,8 @@
 /* Question */
-
+.application{
+    height: 100%;
+    width: 100%;
+}
 .addAnswer {
     cursor: pointer;
     color: blue;
