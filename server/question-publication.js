@@ -1,13 +1,6 @@
-// Client subscribes to this channel will get a list of all questions
-Meteor.publish('questions', function () {
-	return Questions.find({}, {
-		limit: 20
-	});
-});
-
 Meteor.publish('studyQuestions', function () {
 	return Questions.find({}, {
-		limit: 20,
+		limit: 100,
 		fields: {
 			id: 1
 		}

@@ -35,7 +35,7 @@ account:
     current: Mật khẩu hiện tại
     new: Mật khẩu mới
     newRepeated: Nhập lại mật khẩu mới
-    action: Đồng ý
+    action: Lưu
 
 profile:
   emailVerification: Xác nhận Email
