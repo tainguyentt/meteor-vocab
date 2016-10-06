@@ -1,13 +1,13 @@
 <template name="addAnswer">
     <form class="answer-form form">
         <div class="form-group label-floating is-empty">
-            <p class="control-label">{{_ "answer.label"}}</p>
-            <textarea name="body" class="form-control textarea-limited border-input"></textarea>
+            <p class="control-label"></p>
+            <textarea name="body" class="form-control textarea-limited border-input" rows='5' placeholder="{{_ 'answer.label'}}"></textarea>
             <span class="material-input"></span>
         </div>
         <div class="text-right">
             <a class="skip-answer">{{_ "answer.check"}}</a>
-            <button type="submit" class="btn btn-primary">{{_ "answer.submit"}}</button>
+            <button type="submit" class="btn btn-info btn-fill">{{_ "answer.submit"}}</button>
         </div>
     </form>
 </template>

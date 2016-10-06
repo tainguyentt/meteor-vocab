@@ -9,7 +9,7 @@ time:
   at: lúc
 
 header:
-  appName: Tập Viết
+  appName: Write It
   createQuestion: Thêm câu hỏi
   allQuestions: Danh sách câu hỏi
   profile: Trang cá nhân
@@ -57,7 +57,7 @@ question:
     label: Trả lời
 
 answer:
-  label: Điền câu trả lời
+  label: Câu trả lời
   check: Xem đáp án
   submit: Gửi
   noResult: Chưa có câu trả lời

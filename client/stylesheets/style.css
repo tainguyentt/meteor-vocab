@@ -1,8 +1,4 @@
 /* Question */
-.application{
-    height: 100%;
-    width: 100%;
-}
 .addAnswer {
     cursor: pointer;
     color: blue;
@@ -18,12 +14,18 @@
 }
 .question-vote {
     margin-top: 30px;
+		text-align: right;
 }
 .question-body {
     margin-bottom: 5px;
 }
 .question-content {
-    padding: 20px 0;
+    padding: 20px 10px;
+		/*border: 1px solid #CCC5B9;*/
+		border-radius: 5px;
+		text-align: center;
+		margin: 10px 0;
+		background-color: #fffcf5;
 }
 .question-info {
     color: #777;
@@ -62,11 +64,16 @@ textarea {
     margin-right: 10px;
     cursor: pointer;
 }
+
+.nav-tabs > li.active *::after {
+    border-bottom: 11px solid #f4f3ef;
+}
 .answers-container {
     margin-top: 20px;
 }
 .answer-item {
     border: 1px solid #ddd;
+		border-radius: 5px;
     margin: 10px 0;
     padding: 5px 0;
     background-color: #f5f5f5;

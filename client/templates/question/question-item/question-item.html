@@ -1,16 +1,15 @@
 <template name="questionItem">
-	<div class="">
+	<div class="row">
 		<div class="col-xs-10">
-			<h3 class="title">{{_ "question.solve.title"}}
-			</h3>
+			<h4 class="title">{{_ "question.solve.title"}}</h4>
 		</div>
-		<div class="col-xs-2 question-vote text-right">
+		<div class="col-xs-2 question-vote">
 			{{> voteQuestion}}
 		</div>
 	</div>
-	<div>
-		<legend></legend>
-		<label class="control-label">{{content}}</label>
+
+	<div class="question-content">
+		<p>{{content}}</p>
 	</div>
 	<div class="question-topics pull-left">
 		{{#each topics}}

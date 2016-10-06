@@ -1,25 +1,26 @@
 <template name="layout">
-    <div class="application">
-        {{> header}}
-        <div id="main-container" class="section">
-            <div class="col-xs-10 col-xs-offset-1">
-                {{> yield}}
-            </div>
-        </div>
-        {{> footer}}
-        <script type="text/javascript">
-            $('#main-container').css("min-height", $(window).height() - 190);
-        </script>
-    </div>
+	<div class="application">
+		{{> header}}
+		<div class="wrapper">
+			<div class="main">
+				<div class="section">
+					{{> yield}}
+				</div>
+			</div>
+		</div>
+		{{> footer}}
+	</div>
 </template>
+
 <template name="layout2">
-    {{> header}}
-    <div class="container">
-        {{> yield}}
-    </div>
+	{{> header}}
+	<div class="container">
+		{{> yield}}
+	</div>
 </template>
+
 <template name="nonHeaderLayout">
-    <div class="container">
-        {{> yield}}
-    </div>
+	<div class="container">
+		{{> yield}}
+	</div>
 </template>

@@ -1,6 +1,8 @@
 // Client subscribes to this channel will get a list of all questions
 Meteor.publish('questions', function () {
-	return Questions.find();
+	return Questions.find({}, {
+		limit: 20
+	});
 });
 
 Meteor.publish('studyQuestions', function () {
@@ -10,44 +12,6 @@ Meteor.publish('studyQuestions', function () {
 			id: 1
 		}
 	})
-});
-
-Meteor.publish('userAnswers', function (questionId, userId) {
-	return Answers.find({
-		questionId: questionId,
-		userId: userId
-	}, {
-		sort: {
-			created: -1
-		}
-	})
-});
-
-Meteor.publishComposite('answers', function (questionId, answersLimit) {
-	return {
-		find: function () {
-			return Answers.find({
-				questionId: questionId
-			}, {
-				limit: answersLimit,
-				sort: {
-					voteCount: -1
-				}
-			});
-		},
-		children: [{
-			find: function (answer) {
-				return Meteor.users.find({
-					_id: answer.userId
-				}, {
-					limit: 1,
-					fields: {
-						profile: 1
-					}
-				});
-			}
-		}],
-	};
 });
 
 Meteor.publishComposite('question', function (questionId) {
@@ -100,8 +64,3 @@ Meteor.publish('listMyQuestion', function (userId) {
 		userId: userId
 	});
 })
-
-// Client subscribes to this channel will get a list of all topics
-Meteor.publish('topics', function () {
-	return Topics.find();
-});

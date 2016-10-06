@@ -1,28 +1,26 @@
 <template name="answerItem">
-    <div class="row answer-item">
-        <div class="col-xs-1 answer-author text-center">
-            <i class="material-icons user-avatar">account_circle</i>
-        </div>
-        <div class="col-xs-10 content-answer">
-            <div>
-                <a class="answer-username">{{username}}</a>
-                <span class="answer-time">
-                    <span class="icon fa fa-clock-o"></span> {{createdAt}}
-                </span>
-            </div>
-            <p>{{content}}</p>
-        </div>
-        <div class="col-xs-1 text-center">
-            <a href="#" class="vote-answer">
-                <i class="material-icons">
-                    {{#if voted}}
-                	   favorite
-                    {{else}}
-                        favorite_border
-                    {{/if}}
-                </i>
-            </a>
-            <div>{{voteCount}}</div>
-        </div>
-    </div>
+	<div class="row answer-item">
+		<div class="col-xs-11 content-answer">
+			<small>
+				<a class="answer-username">{{username}}</a>
+				<span class="answer-time">
+					<span class="icon fa fa-clock-o"></span>
+					{{createdAt}}
+				</span>
+			</small>
+			<p>{{content}}</p>
+		</div>
+		<div class="col-xs-1 text-center">
+			<a href="#" class="vote-answer">
+				<i class="material-icons">
+					{{#if voted}}
+						favorite
+					{{else}}
+						favorite_border
+					{{/if}}
+				</i>
+			</a>
+			<div>{{voteCount}}</div>
+		</div>
+	</div>
 </template>

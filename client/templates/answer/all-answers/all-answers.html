@@ -4,14 +4,18 @@
 			{{_ "answer.noResult"}}
 		{{/if}}
 	{{else}}
-		<ul class="nav nav-tabs">
-			<li class="active pull-right">
-				<a data-toggle="tab" href="#all-answers">{{_ "answer.allAnswers"}}</a>
-			</li>
-			<li class="pull-right">
-				<a data-toggle="tab" href="#my-answers">{{_ "answer.myAnswers"}}</a>
-			</li>
-		</ul>
+		<div class="nav-tabs-navigation">
+			<div class="nav-tabs-wrapper">
+				<ul class="nav nav-tabs">
+					<li class="active pull-right">
+						<a data-toggle="tab" href="#all-answers">{{_ "answer.allAnswers"}}</a>
+					</li>
+					<li class="pull-right">
+						<a data-toggle="tab" href="#my-answers">{{_ "answer.myAnswers"}}</a>
+					</li>
+				</ul>
+			</div>
+		</div>
 		<div class="tab-content answers-container">
 			<div id="all-answers" class="tab-pane fade in active">
 				{{#each allAnswers}}
