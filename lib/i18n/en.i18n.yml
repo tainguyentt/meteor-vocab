@@ -26,11 +26,11 @@ account:
   logIn:
     title: Xin chào
     action: Đăng nhập
-    redirectToSignUp: Bạn chưa có tài khoản? Đăng ký ở đây
+    redirectToSignUp: Đăng ký tài khoản
   signUp:
     title: Đăng ký tài khoản
     action: Đăng ký
-    redirectToLogIn: Đã có tài khoản? Đăng nhập ở đây
+    redirectToLogIn: Đăng nhập ở đây
   passwordChange:
     current: Mật khẩu hiện tại
     new: Mật khẩu mới

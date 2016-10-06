@@ -40,11 +40,14 @@
 }
 
 /*Login*/
-
-.sign-in-container {
-    max-width: 300px;
-    margin: 0 auto;
+.card .content .account-form .title {
+	margin-bottom: 50px;
 }
+
+.account-form-action {
+	margin: 30px 0;
+}
+
 textarea {
     resize: vertical;
 }

@@ -1,0 +1,29 @@
+<template name="signUp">
+	<div class="container">
+		<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12">
+			<div class="card" data-background="color" data-color="orange">
+				<div class="content">
+					<p name="messages"></p>
+					<form id="sign-up-form" class="account-form">
+						<h4 class="title text-center">{{_ "account.signUp.title"}}</h4>
+						<div class="form-group">
+							<input class="form-control" placeholder="{{_ 'account.name'}}" type="text" name="name">
+						</div>
+						<div class="form-group">
+							<input class="form-control" placeholder="{{_ 'account.email'}}" type="email" name="email">
+						</div>
+						<div class="form-group">
+							<input class="form-control" placeholder="{{_ 'account.password'}}" type="password" name="password">
+						</div>
+						<div class="form-group account-form-action">
+							<button type="submit" class="btn btn-fill btn-block">{{_ "account.signUp.action"}}</button>
+						</div>
+					</form>
+					<div class="form-group text-center">
+						<a href="{{pathFor 'signIn'}}">{{_ "account.signUp.redirectToLogIn"}}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
