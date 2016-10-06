@@ -35,10 +35,11 @@ Meteor.publishComposite('question', function (questionId) {
 	};
 });
 
-// Client subscribes to this channel will get a list of all of my answers
 Meteor.publish('listQuestionAnswerByMe', function (userId) {
 	var userAnswers = Answers.find({
 		createdBy: userId
+	}, {
+		limit: 20
 	});
 	var questiondIds = userAnswers.map(function (answer) {
 		return answer.questionId
@@ -51,9 +52,10 @@ Meteor.publish('listQuestionAnswerByMe', function (userId) {
 	return questions;
 });
 
-// Client subscribes to this channel will get a list of all of my question
 Meteor.publish('listMyQuestion', function (userId) {
 	return Questions.find({
 		userId: userId
+	}, {
+		limit: 20
 	});
 })
