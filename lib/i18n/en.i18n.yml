@@ -9,7 +9,7 @@ time:
   at: lúc
 
 header:
-  appName: Write It
+  appName: DịchVA
   createQuestion: Thêm câu hỏi
   allQuestions: Danh sách câu hỏi
   profile: Trang cá nhân
@@ -47,8 +47,12 @@ question:
   vote: Bầu chọn
   create:
     title: Tạo câu hỏi mới
-    label: Câu hoặc từ cần dịch
-    topic: Chủ đề
+    content:
+      label: Nội dung
+      helptext: Câu hoặc từ Tiếng Việt cần dịch
+    topic:
+      label: Chủ đề
+      helptext: Chọn chủ đề
     action: Tạo
   edit:
     title: Sửa câu hoặc từ cần dịch

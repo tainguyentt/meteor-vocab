@@ -1,41 +1,43 @@
 <template name="userProfile">
-  <div class="row">
-    <label class="col-sm-2 control-label">{{_ "account.name"}}</label>
-    {{#if nameEditing}}
-      <div class="col-sm-2">
-        <input class="form-control" type="text" name="newName" value="{{name}}" />
-      </div>
-      <a class="name-save" href="#">{{_ "common.save"}}</a>
-      <a class="name-cancel" href="#">{{_ "common.cancel"}}</a>
-    {{else}}
-      <div class="col-sm-2">
-        <p>{{name}}</p>
-      </div>
-      <a class="name-edit" href="#">{{_ "common.edit"}}</a>
-    {{/if}}
-  </div>
-  <div class="row">
-    <label class="col-sm-2 control-label">{{_ "account.email"}}</label>
-    <div class="col-sm-5">
-      <p>{{email}}</p>
-    </div>
-  </div>
-  {{#unless emailVerified}}
-    <div class="row">
-      <label class="col-sm-2 control-label">{{_ "profile.emailVerification"}}</label>
-      <div class="col-sm-5">
-        <p>{{_ "common.not"}}</p>
-      </div>
-    </div>
-  {{/unless}}
-  <div class="row">
-    <label class="col-sm-2 control-label">{{_ "profile.displayLanguage"}}</label>
-    <div class="col-sm-5">
-      <p>{{displayLanguage}}</p>
-    </div>
-  </div>
-  <div class="row">
-    <label class="col-sm-2 control-label">{{_ "account.password"}}</label>
-    <a class="col-sm-2" href="{{pathFor 'changePassword'}}">{{_ "common.edit"}}</a>
-  </div>
+	<div class="container">
+		<div class="row">
+			<label class="col-sm-2 control-label">{{_ "account.name"}}</label>
+			{{#if nameEditing}}
+				<div class="col-sm-2">
+					<input class="form-control" type="text" name="newName" value="{{name}}"/>
+				</div>
+				<a class="name-save" href="#">{{_ "common.save"}}</a>
+				<a class="name-cancel" href="#">{{_ "common.cancel"}}</a>
+			{{else}}
+				<div class="col-sm-2">
+					<p>{{name}}</p>
+				</div>
+				<a class="name-edit" href="#">{{_ "common.edit"}}</a>
+			{{/if}}
+		</div>
+		<div class="row">
+			<label class="col-sm-2 control-label">{{_ "account.email"}}</label>
+			<div class="col-sm-5">
+				<p>{{email}}</p>
+			</div>
+		</div>
+		{{#unless emailVerified}}
+			<div class="row">
+				<label class="col-sm-2 control-label">{{_ "profile.emailVerification"}}</label>
+				<div class="col-sm-5">
+					<p>{{_ "common.not"}}</p>
+				</div>
+			</div>
+		{{/unless}}
+		<div class="row">
+			<label class="col-sm-2 control-label">{{_ "profile.displayLanguage"}}</label>
+			<div class="col-sm-5">
+				<p>{{displayLanguage}}</p>
+			</div>
+		</div>
+		<div class="row">
+			<label class="col-sm-2 control-label">{{_ "account.password"}}</label>
+			<a class="col-sm-2" href="{{pathFor 'changePassword'}}">{{_ "common.edit"}}</a>
+		</div>
+	</div>
 </template>

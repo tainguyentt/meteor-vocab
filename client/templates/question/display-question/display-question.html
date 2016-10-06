@@ -1,4 +1,13 @@
 <template name="displayQuestion">
-	{{> questionItem}}
-	{{> allAnswers}}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				{{> questionItem}}
+				{{> allAnswers}}
+				<div>
+					<a href="{{pathFor 'answerQuestion' _id}}">Thêm câu trả lời</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </template>
