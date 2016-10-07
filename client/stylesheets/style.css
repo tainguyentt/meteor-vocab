@@ -12,9 +12,12 @@
     cursor: pointer;
     color: blue;
 }
+.question-content-wrapper {
+	position: relative;
+}
 .question-vote {
-    margin-top: 30px;
-		text-align: right;
+		margin-top: 10px;
+		text-align: center;
 }
 .question-body {
     margin-bottom: 5px;
@@ -31,12 +34,17 @@
     color: #777;
     font-size: 12px;
 		margin-bottom: 20px;
+		text-align: right;
 }
 .question-user {
     font-weight: bold;
 }
 .question-time {
     margin-left: 10px;
+}
+
+.next-question {
+	margin-top: 30px;
 }
 
 /*Login*/
@@ -74,12 +82,12 @@ textarea {
 .answers-container {
     margin-top: 20px;
 }
-.answer-item {
+.answer-content {
     border: 1px solid #ddd;
 		border-radius: 5px;
-    margin: 10px 0;
-    padding: 5px 0;
+    padding: 5px 10px;
     background-color: #f5f5f5;
+		margin-bottom: 15px;
 }
 .answer-username {
     font-weight: bold;
@@ -94,9 +102,6 @@ textarea {
 }
 .material-icons.user-avatar {
     font-size: 48px;
-}
-.vote-question {
-    margin-right: 10px;
 }
 
 /* Errors */

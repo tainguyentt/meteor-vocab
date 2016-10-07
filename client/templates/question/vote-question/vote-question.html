@@ -1,13 +1,15 @@
 <template name="voteQuestion">
-    {{#if isVoted}}
-        {{voteCount}}
-    {{/if}}
-    <a class="vote-question" href="#" disabled="true" id="vote-question">
-        {{#if voted}}
-          <i class="fa fa-heart"></i>
-        {{else}}
-          <i class="fa fa-heart-o"></i>
-        {{/if}}
-        <!-- {{_ "question.vote"}} -->
-    </a>
+	<div>
+		<a class="vote-question" href="#" disabled="true" id="vote-question">
+			{{#if voted}}
+				<i class="fa fa-heart"></i>
+			{{else}}
+				<i class="fa fa-heart-o"></i>
+			{{/if}}
+			<!-- {{_ "question.vote"}} -->
+		</a>
+	</div>
+	<div>
+		{{voteCount}}
+	</div>
 </template>

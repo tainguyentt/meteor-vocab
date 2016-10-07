@@ -1,7 +1,9 @@
 <template name="allAnswers">
 	{{#if noAnswersFound}}
 		{{#if Template.subscriptionsReady}}
-			{{_ "answer.noResult"}}
+			<div class="text-center">
+				{{_ "answer.noResult"}}
+			</div>
 		{{/if}}
 	{{else}}
 		<div class="nav-tabs-navigation">
@@ -37,9 +39,15 @@
 				{{/if}}
 			</div>
 			<div id="my-answers" class="tab-pane fade">
-				{{#each myAnswers}}
-					{{> answerItem}}
-				{{/each}}
+				{{#if noMyAnswers}}
+					<div class="text-center">
+						{{_ "answer.noResult"}}
+					</div>
+				{{else}}
+					{{#each myAnswers}}
+						{{> answerItem}}
+					{{/each}}
+				{{/if}}
 			</div>
 		</div>
 	{{/if}}

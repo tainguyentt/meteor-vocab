@@ -1,30 +1,33 @@
 <template name="questionItem">
 	<div class="row">
-		<div class="col-xs-10">
-			<h4 class="title">{{_ "question.solve.title"}}</h4>
-		</div>
-		<div class="col-xs-2 question-vote">
+		<div class="col-sm-1 question-vote">
 			{{> voteQuestion}}
 		</div>
+		<div class="col-sm-11">
+			<div class="question-content">
+				<p>{{content}}</p>
+			</div>
+		</div>
 	</div>
-
-	<div class="question-content">
-		<p>{{content}}</p>
+	<div class="row">
+		<div class="col-sm-5 col-sm-offset-1">
+			<div class="question-topics">
+				{{#each topics}}
+					<span class="badge">{{content}}</span>
+				{{/each}}
+			</div>
+		</div>
+		<div class="col-sm-6">
+			<div class="question-info">
+				<span class="question-user">
+					<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+					<a class="">{{username}}</a>
+				</span>
+				<span class="question-time">
+					<span class="icon fa fa-clock-o"></span>
+					{{createdAt}}
+				</span>
+			</div>
+		</div>
 	</div>
-	<div class="question-topics pull-left">
-		{{#each topics}}
-			<span class="badge">{{content}}</span>
-		{{/each}}
-	</div>
-	<div class="question-info pull-right">
-		<span class="question-user">
-			<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-			<a class="">{{username}}</a>
-		</span>
-		<span class="question-time">
-			<span class="icon fa fa-clock-o"></span>
-			{{createdAt}}
-		</span>
-	</div>
-	<div class="clearfix"></div>
 </template>

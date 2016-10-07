@@ -21,6 +21,12 @@ Template.allAnswers.helpers({
 			questionId: this._id
 		}).count() === 0;
 	},
+	noMyAnswers: function () {
+		return Answers.find({
+			questionId: this._id,
+			userId: Meteor.userId()
+		}).count() === 0;
+	},
 	allAnswers: function () {
 		return Answers.find({
 			questionId: this._id
