@@ -1,54 +1,58 @@
 <template name="allAnswers">
-	{{#if noAnswersFound}}
-		{{#if Template.subscriptionsReady}}
+	{{#if Template.subscriptionsReady}}
+		{{#if noAnswersFound}}
 			<div class="text-center">
 				{{_ "answer.noResult"}}
 			</div>
-		{{/if}}
-	{{else}}
-		<div class="nav-tabs-navigation">
-			<div class="nav-tabs-wrapper">
-				<ul class="nav nav-tabs">
-					<li class="active pull-right">
-						<a data-toggle="tab" href="#all-answers">{{_ "answer.allAnswers"}}</a>
-					</li>
-					<li class="pull-right">
-						<a data-toggle="tab" href="#my-answers">{{_ "answer.myAnswers"}}</a>
-					</li>
-				</ul>
+		{{else}}
+			<div class="nav-tabs-navigation">
+				<div class="nav-tabs-wrapper">
+					<ul class="nav nav-tabs">
+						<li class="active pull-right">
+							<a data-toggle="tab" href="#all-answers">{{_ "answer.allAnswers"}}</a>
+						</li>
+						<li class="pull-right">
+							<a data-toggle="tab" href="#my-answers">{{_ "answer.myAnswers"}}</a>
+						</li>
+					</ul>
+				</div>
 			</div>
-		</div>
-		<div class="tab-content answers-container">
-			<div id="all-answers" class="tab-pane fade in active">
-				{{#each allAnswers}}
-					{{> answerItem}}
-				{{/each}}
-				{{#if Template.subscriptionsReady}}
-					{{#if hasMoreAnswers}}
-						<div class="text-center">
-							<a href="#" id="show-more">
-								{{_ "common.loadMore"}}
-								<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
-							</a>
-						</div>
-					{{/if}}
-				{{else}}
-					<div class="text-center">
-						{{> spinner}}
-					</div>
-				{{/if}}
-			</div>
-			<div id="my-answers" class="tab-pane fade">
-				{{#if noMyAnswers}}
-					<div class="text-center">
-						{{_ "answer.noResult"}}
-					</div>
-				{{else}}
-					{{#each myAnswers}}
+			<div class="tab-content answers-container">
+				<div id="all-answers" class="tab-pane fade in active">
+					{{#each allAnswers}}
 						{{> answerItem}}
 					{{/each}}
-				{{/if}}
+					{{#if Template.subscriptionsReady}}
+						{{#if hasMoreAnswers}}
+							<div class="text-center">
+								<a href="#" id="show-more">
+									{{_ "common.loadMore"}}
+									<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+								</a>
+							</div>
+						{{/if}}
+					{{else}}
+						<div class="text-center">
+							{{> spinner}}
+						</div>
+					{{/if}}
+				</div>
+				<div id="my-answers" class="tab-pane fade">
+					{{#if noMyAnswers}}
+						<div class="text-center">
+							{{_ "answer.noResult"}}
+						</div>
+					{{else}}
+						{{#each myAnswers}}
+							{{> answerItem}}
+						{{/each}}
+					{{/if}}
+				</div>
 			</div>
+		{{/if}}
+	{{else}}
+		<div class="text-center">
+			{{> spinner}}
 		</div>
 	{{/if}}
 </template>

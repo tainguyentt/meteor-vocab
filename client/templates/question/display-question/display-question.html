@@ -5,8 +5,10 @@
 				<h4 class="title">{{_ "question.solve.title"}}</h4>
 				{{> questionItem}}
 				{{> allAnswers}}
-				<div>
-					<a href="{{pathFor 'answerQuestion' _id}}">Thêm câu trả lời</a>
+				<div class="row">
+					<div class="col-xs-11 col-xs-offset-1">
+						<a href="{{pathFor 'answerQuestion' _id}}">Thêm câu trả lời</a>
+					</div>
 				</div>
 			</div>
 		</div>
