@@ -2,21 +2,21 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8">
+				<div class="row">
+					<div class="col-xs-6">
+						<h4 class="title">{{_ "question.solve.title"}}</h4>
+					</div>
+					<div class="col-xs-6">
+						{{#if showAnswer}}
+							<button id="next-question" class="btn btn-success btn-fill pull-right next-question">
+								{{_ "study.nextQuestion"}}
+								<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+							</button>
+						{{/if}}
+					</div>
+				</div>
 				{{#if Template.subscriptionsReady}}
 					{{#with studyingQuestion}}
-						<div class="row">
-							<div class="col-xs-6">
-								<h4 class="title">{{_ "question.solve.title"}}</h4>
-							</div>
-							<div class="col-xs-6">
-								{{#if showAnswer}}
-									<button id="next-question" class="btn btn-success btn-fill pull-right next-question">
-										{{_ "study.nextQuestion"}}
-										<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-									</button>
-								{{/if}}
-							</div>
-						</div>
 						{{> questionItem}}
 						{{#if showAnswer}}
 							{{> allAnswers}}
@@ -29,7 +29,7 @@
 						{{/if}}
 					{{/with}}
 				{{else}}
-					<div class="text-center">
+					<div class="loading-wrapper">
 						{{> spinner}}
 					</div>
 				{{/if}}

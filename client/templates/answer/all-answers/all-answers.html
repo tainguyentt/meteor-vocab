@@ -22,18 +22,12 @@
 					{{#each allAnswers}}
 						{{> answerItem}}
 					{{/each}}
-					{{#if Template.subscriptionsReady}}
-						{{#if hasMoreAnswers}}
-							<div class="text-center">
-								<a href="#" id="show-more">
-									{{_ "common.loadMore"}}
-									<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
-								</a>
-							</div>
-						{{/if}}
-					{{else}}
+					{{#if hasMoreAnswers}}
 						<div class="text-center">
-							{{> spinner}}
+							<a href="#" id="show-more">
+								{{_ "common.loadMore"}}
+								<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+							</a>
 						</div>
 					{{/if}}
 				</div>
@@ -51,7 +45,7 @@
 			</div>
 		{{/if}}
 	{{else}}
-		<div class="text-center">
+		<div class="loading-wrapper">
 			{{> spinner}}
 		</div>
 	{{/if}}

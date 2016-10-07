@@ -1,9 +1,20 @@
 <template name="questionItem">
 	<div class="row">
-		<div class="col-sm-1 question-vote">
-			{{> voteQuestion}}
+		<div class="col-xs-1 question-vote">
+			<div>
+				<a class="js-vote-question vote-question" href="#" disabled="true">
+					{{#if voted}}
+						<i class="fa fa-heart"></i>
+					{{else}}
+						<i class="fa fa-heart-o"></i>
+					{{/if}}
+				</a>
+			</div>
+			<div>
+				{{voteCount}}
+			</div>
 		</div>
-		<div class="col-sm-11">
+		<div class="col-xs-11">
 			<div class="question-content">
 				<p>{{content}}</p>
 			</div>
