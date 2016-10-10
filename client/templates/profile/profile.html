@@ -1,0 +1,73 @@
+<template name="profile">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4">
+				<h4>{{username}}</h4>
+				<div>
+					<strong>Cấp độ:</strong>
+					1
+				</div>
+				<div>
+					<strong>Điểm:</strong>
+					{{userPoints}}
+				</div>
+				<div>
+					Tham gia:
+					{{joinedAt}}
+				</div>
+				<br/>
+				<h6>Chủ đề quan tâm
+					<btn class="btn btn-sm btn-info btn-icon" rel="tooltip" title="Thêm chủ đề">
+						<i class="fa fa-plus"></i>
+					</btn>
+				</h6>
+				<div class="tagsinput tag-success">
+					<span class="tag">
+						Kinh tế
+					</span>
+					<span class="tag">
+						Thể thao
+					</span>
+					<span class="tag">
+						Giao tiếp hàng ngày
+					</span>
+				</div>
+				<br/>
+				<div>
+					<button class="btn btn-warning">
+						<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+						Ngưỡng mộ</button>
+				</div>
+			</div>
+			<div class="col-sm-8">
+				<h5>Câu hỏi gần đây</h5>
+				<div>
+					{{#each userQuestions}}
+						<div>
+							<a href="{{pathFor 'displayQuestion'}}">
+								{{content}}
+							</a>
+							<small>
+								-
+								{{formatTime created}}</small>
+						</div>
+					{{/each}}
+				</div>
+				<hr/>
+				<h5>Câu trả lời gần đây</h5>
+				<div>
+					{{#each userAnswers}}
+						<div>
+							<a href="{{pathFor 'displayQuestion' _id=questionId}}">
+								{{content}}
+							</a>
+							<small>
+								-
+								{{formatTime created}}</small>
+						</div>
+					{{/each}}
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

@@ -1,0 +1,91 @@
+<template name="homePage">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8">
+				<h5>Câu hỏi gần đây</h5>
+				<div>
+					{{#each userQuestions}}
+						<div>
+							<a href="{{pathFor 'displayQuestion'}}">
+								{{content}}
+							</a>
+							<small>
+								-
+								{{formatTime created}}</small>
+						</div>
+					{{/each}}
+				</div>
+				<hr/>
+				<h5>Câu trả lời gần đây</h5>
+				<div>
+					{{#each userAnswers}}
+						<div>
+							<a href="{{pathFor 'displayQuestion' _id=questionId}}">
+								{{content}}
+							</a>
+							<small>
+								-
+								{{formatTime created}}</small>
+						</div>
+					{{/each}}
+				</div>
+			</div>
+
+			<div class="col-sm-4">
+				<a href="{{pathFor 'study'}}">
+					<div class="card card-just-text card-with-shadow" data-background="color" data-color="green">
+						<div class="content">
+							<i class="fa fa-play" aria-hidden="true"></i>
+							Học
+						</div>
+					</div>
+				</a>
+				<br/>
+
+				<a href="{{pathFor 'addQuestion'}}">
+					<div class="card card-just-text card-with-shadow" data-background="color" data-color="yellow">
+						<div class="content">
+							<i class="fa fa-question-circle" aria-hidden="true"></i>
+							Hỏi
+						</div>
+					</div>
+				</a>
+
+				<div class="card">
+					<div class="content">
+						<h5>{{username}}</h5>
+						<div>
+							<strong>Cấp độ:</strong>
+							1
+						</div>
+						<div>
+							<strong>Điểm:</strong>
+							{{userPoints}}
+						</div>
+						<div>
+							Tham gia:
+							{{joinedAt}}
+						</div>
+						<br/>
+						<h6>Chủ đề quan tâm
+							<btn class="btn btn-sm btn-info btn-icon" rel="tooltip" title="Thêm chủ đề">
+								<i class="fa fa-plus"></i>
+							</btn>
+						</h6>
+						<div class="tagsinput tag-success">
+							<span class="tag">
+								Kinh tế
+							</span>
+							<span class="tag">
+								Thể thao
+							</span>
+							<span class="tag">
+								Giao tiếp
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

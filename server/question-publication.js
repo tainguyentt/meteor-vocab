@@ -52,10 +52,10 @@ Meteor.publish('listQuestionAnswerByMe', function (userId) {
 	return questions;
 });
 
-Meteor.publish('listMyQuestion', function (userId) {
+Meteor.publish('listMyQuestion', function (userId, limit) {
 	return Questions.find({
 		userId: userId
 	}, {
-		limit: 20
+		limit: limit
 	});
 })
