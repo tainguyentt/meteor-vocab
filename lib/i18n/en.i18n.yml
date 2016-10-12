@@ -4,6 +4,9 @@ common:
   edit: Chỉnh sửa
   not: Chưa
   loadMore: Hiện thêm
+  
+error:
+  404: Trang không tồn tại
 
 time:
   at: lúc

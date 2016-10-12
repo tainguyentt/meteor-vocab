@@ -34,3 +34,4 @@ check
 momentjs:moment
 rzymek:moment-locale-vi
 meteorhacks:fast-render
+percolate:momentum
