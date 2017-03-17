@@ -6,8 +6,6 @@ Template.addQuestion.events({
 			topics: template.topics
 		};
 
-		console.warn(template.topics);
-
 		Meteor.call('question.insert', question, function(error, result) {
 			if (error) {
 				throwError(error.reason);
@@ -55,14 +53,6 @@ Template.addQuestion.onRendered(function() {
 			item: function(data, escape) {
 				return '<div class="item"><a href="' + escape(data.url) + '">' + escape(data.content) + '</a></div>';
 			}
-		},
-		create: function(value) {
-			var topic = {
-				_id: count++,
-				content: value
-			}
-			allTopics.push(topic);
-			return topic;
 		},
 		onChange: function(values) {
 			var selectedTopics = [];
